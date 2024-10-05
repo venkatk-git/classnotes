@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "./ui/button";
 import { MainNav } from "./main-nav";
+import { MobileNav } from "./mobile-nav";
 
 export function SiteHeader() {
     return (
@@ -11,7 +12,7 @@ export function SiteHeader() {
             <div className="container flex h-14 max-w-screen-2xl items-center">
                 <MainNav />
                 <div className="flex flex-1 items-center justify-end space-x-2">
-                    <nav className="flex items-center">
+                    <nav className="flex items-center space-x-2">
                         <Button
                             variant="outline"
                             className={cn(
@@ -36,13 +37,14 @@ export function SiteHeader() {
                             <div
                                 className={cn(
                                     buttonVariants({ variant: "ghost" }),
-                                    "w-10 px-0"
+                                    "w-10 px-0 hidden sm:inline-flex"
                                 )}
                             >
                                 <Icons.github className="w-4 h-4" />
                                 <span className="sr-only">GitHub</span>
                             </div>
                         </Link>
+                        <MobileNav />
                     </nav>
                 </div>
             </div>
