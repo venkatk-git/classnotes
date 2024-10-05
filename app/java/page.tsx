@@ -1,5 +1,5 @@
 function JavaLayout() {
-    return <h1>Java Notes</h1>;
+    return <div >Java Notes</div>;
 }
 
 export default JavaLayout;
