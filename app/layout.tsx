@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+import { Providers } from "@/components/providers";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -28,10 +29,12 @@ export default function RootLayout({
                     inter.variable
                 )}
             >
-                <div className="min-h-dvh flex flex-col bg-background">
-                    <SiteHeader />
-                    <main className="px-8">{children}</main>
-                </div>
+                <Providers>
+                    <div className="min-h-dvh flex flex-col bg-background">
+                        <SiteHeader />
+                        <main className="px-8">{children}</main>
+                    </div>
+                </Providers>
             </body>
         </html>
     );

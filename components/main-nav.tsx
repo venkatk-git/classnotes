@@ -13,7 +13,7 @@ export function MainNav() {
         <nav className="flex items-center space-x-4 lg:space-x-6">
             <Link href="/" rel="norefferrer">
                 <div className="mr-2 flex items-center space-x-2">
-                    <Icons.logo className="w-6 h-6" />
+                    <Icons.logo className="w-6 h-6 " />
                     <span className="font-bold">{siteConfig.name}</span>
                 </div>
             </Link>

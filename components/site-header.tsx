@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "./ui/button";
 import { MainNav } from "./main-nav";
 import { MobileNav } from "./mobile-nav";
+import { ModeToggle } from "./mode-toggle";
 
 export function SiteHeader() {
     return (
@@ -44,6 +45,7 @@ export function SiteHeader() {
                                 <span className="sr-only">GitHub</span>
                             </div>
                         </Link>
+                        <ModeToggle />
                         <MobileNav />
                     </nav>
                 </div>
