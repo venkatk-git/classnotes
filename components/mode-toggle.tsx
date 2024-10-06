@@ -24,23 +24,23 @@ export function ModeToggle() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
                 align="end"
-                className="flex flex-col bg-white shadow-lg border rounded-sm px-1 py-1 w-28"
+                className="flex flex-col bg-white dark:bg-accent shadow-lg border rounded-sm px-1 py-1 w-28"
             >
                 <DropdownMenuItem
-                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 rounded-sm"
+                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm"
                     onClick={() => setTheme("light")}
                 >
                     Light
                 </DropdownMenuItem>
 
                 <DropdownMenuItem
-                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 rounded-sm"
+                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm"
                     onClick={() => setTheme("dark")}
                 >
                     Dark
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 rounded-sm"
+                    className="px-3 py-1 cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm"
                     onClick={() => setTheme("system")}
                 >
                     System

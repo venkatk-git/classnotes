@@ -24,11 +24,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-pt-[3.5rem]">
             <Head>
-                <link
-                    rel="icon"
-                    href="https://raw.githubusercontent.com/venkatk-git/classnotes/refs/heads/main/app/favicon.ico"
-                    sizes="48x48"
-                />
+                <link rel="icon" href="./favicon.ico" sizes="48x48" />
             </Head>
             <body
                 className={cn(
