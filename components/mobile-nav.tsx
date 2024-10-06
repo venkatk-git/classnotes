@@ -17,13 +17,16 @@ export function MobileNav() {
             <SheetTrigger asChild>
                 <Button
                     variant="outline"
-                    className="w-10 px-2 sm:hidden bg-inherit"
+                    className="w-10 px-2 sm:hidden bg-inherit border-0"
                 >
                     <Menu className="w-5 h-5" />
                     <span className="sr-only">Toggle Menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent
+                side="right"
+                className="bg-accent text-accent-foreground"
+            >
                 <MobileLink
                     href="/"
                     className="flex items-center"
