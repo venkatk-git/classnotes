@@ -10,14 +10,14 @@ import { ModeToggle } from "./mode-toggle";
 export function SiteHeader() {
     return (
         <header className="sticky top-0 px-8 w-full border-b border-border bg-background/95 dark:bg-gray-900 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-14 max-w-screen-2xl items-center">
+            <div className="container flex h-16 max-w-screen-2xl items-center">
                 <MainNav />
                 <div className="flex flex-1 items-center justify-end space-x-2">
                     <nav className="flex items-center space-x-2">
                         <Button
                             variant="outline"
                             className={cn(
-                                "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 dark:bg-muted/20 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64 border-border/40"
+                                "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 dark:bg-muted/20 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64 border-border"
                             )}
                         >
                             <span className="hidden lg:inline-flex">
