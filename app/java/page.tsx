@@ -1,5 +1,11 @@
+import { DocsHeader } from "@/components/docs-header";
+
 function JavaLayout() {
-    return <div >Java Notes</div>;
+    return (
+        <div className="flex flex-col">
+            <DocsHeader />
+        </div>
+    );
 }
 
 export default JavaLayout;
