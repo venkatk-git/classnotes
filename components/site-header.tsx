@@ -9,7 +9,7 @@ import { ModeToggle } from "./mode-toggle";
 
 export function SiteHeader() {
     return (
-        <header className="sticky top-0 px-8 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 px-8 w-full border-b border-border bg-background/95 dark:bg-gray-900 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-14 max-w-screen-2xl items-center">
                 <MainNav />
                 <div className="flex flex-1 items-center justify-end space-x-2">
@@ -17,16 +17,16 @@ export function SiteHeader() {
                         <Button
                             variant="outline"
                             className={cn(
-                                "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+                                "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 dark:bg-muted/20 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64 border-border/40"
                             )}
                         >
                             <span className="hidden lg:inline-flex">
                                 Search documentation...
                             </span>
-                            <span className="inline-flex lg:hidden">
+                            <span className="w-24 inline-flex lg:hidden">
                                 Search...
                             </span>
-                            <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                            <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-inherit shadow-sm border-inherit px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
                                 <span className="text-xs">⌘</span>K
                             </kbd>
                         </Button>

@@ -21,9 +21,9 @@
         --secondary: 240 4.8% 95.9%;
         --secondary-foreground: 240 5.9% 10%;
         --muted: 240 4.8% 95.9%;
-        --muted-foreground: 240 3.8% 46.1%;
-        --accent: 240 4.8% 95.9%;
-        --accent-foreground: 240 5.9% 10%;
+        --muted-foreground: 218 11% 35%;
+        --accent: 220 14.29% 95.88%;
+        --accent-foreground: 215 28% 17%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
         --border: 240 5.9% 90%;
@@ -35,11 +35,11 @@
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
-
         --font-sans: "Inter", sans-serif;
     }
+
     .dark {
-        --background: 240 10% 3.9%;
+        --background: 0 0 7%;
         --foreground: 0 0% 98%;
         --card: 240 10% 3.9%;
         --card-foreground: 0 0% 98%;
@@ -50,8 +50,8 @@
         --secondary: 240 3.7% 15.9%;
         --secondary-foreground: 0 0% 98%;
         --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 240 3.7% 15.9%;
+        --muted-foreground: 0, 0%, 100%, 0.38;
+        --accent: 215 28% 17%;
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
@@ -68,6 +68,10 @@
 
 body {
     font-family: var(--font-sans);
+}
+
+html.dark {
+    @apply text-dark-high-emphasis bg-dark-surface min-h-screen !important;
 }
 
 @layer base {
