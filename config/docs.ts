@@ -5,12 +5,12 @@ export const docsConfig = {
             items: [
                 {
                     title: "Introduction",
-                    href: "/docs",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Installation",
-                    href: "/docs/installation",
+                    href: "#",
                     items: [],
                 },
             ],
@@ -20,37 +20,37 @@ export const docsConfig = {
             items: [
                 {
                     title: "Next.js",
-                    href: "/docs/installation/next",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Vite",
-                    href: "/docs/installation/vite",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Remix",
-                    href: "/docs/installation/remix",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Astro",
-                    href: "/docs/installation/astro",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Laravel",
-                    href: "/docs/installation/laravel",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Gatsby",
-                    href: "/docs/installation/gatsby",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Manual",
-                    href: "/docs/installation/manual",
+                    href: "#",
                     items: [],
                 },
             ],
@@ -60,62 +60,62 @@ export const docsConfig = {
             items: [
                 {
                     title: "Accordion",
-                    href: "/docs/components/accordion",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Alert",
-                    href: "/docs/components/alert",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Alert Dialog",
-                    href: "/docs/components/alert-dialog",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Aspect Ratio",
-                    href: "/docs/components/aspect-ratio",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Avatar",
-                    href: "/docs/components/avatar",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Badge",
-                    href: "/docs/components/badge",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Breadcrumb",
-                    href: "/docs/components/breadcrumb",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Button",
-                    href: "/docs/components/button",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Calendar",
-                    href: "/docs/components/calendar",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Card",
-                    href: "/docs/components/card",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Carousel",
-                    href: "/docs/components/carousel",
+                    href: "#",
                     items: [],
                 },
                 {
                     title: "Chart",
-                    href: "/docs/components/chart",
+                    href: "#",
                     items: [],
                 },
             ],
@@ -124,4 +124,3 @@ export const docsConfig = {
 };
 
 export type SideBarDocsType = typeof docsConfig;
-    

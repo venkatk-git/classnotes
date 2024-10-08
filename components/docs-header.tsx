@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function DocsHeader() {
     return (
-        <div className="container flex h-14 max-w-screen-2xl items-center">
+        <div className="container px-4 flex h-14 max-w-screen-2xl items-center">
             <nav className="flex w-full items-center justify-end gap-6 sm:justify-between space-x-2 text-foreground/60 font-medium">
                 <Link
                     href="#"

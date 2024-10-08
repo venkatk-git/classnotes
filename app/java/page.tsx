@@ -4,9 +4,11 @@ import { docsConfig } from "@/config/docs";
 
 function JavaLayout() {
     return (
-        <div className="flex flex-col  px-8">
+        <div className="flex flex-col lg:flex-row-reverse">
             <DocsHeader />
-            <SidebarNav docs={docsConfig} />
+            <div className="">
+                <SidebarNav docs={docsConfig} />
+            </div>
         </div>
     );
 }
