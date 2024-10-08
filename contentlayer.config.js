@@ -1,3 +1,5 @@
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
+
 const computedFields = {
     slug: {
         type: "string",
@@ -8,3 +10,32 @@ const computedFields = {
         resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
     },
 };
+
+export const Java = defineDocumentType(() => ({
+    name: "Java",
+    filePathPattern: `java/**/*.mdx`,
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true,
+        },
+        author: {
+            type: "string",
+            required: true,
+        },
+        description: {
+            type: "string",
+            required: true,
+        },
+    },
+    computedFields,
+}));
+
+export default makeSource({
+    contentDirPath: "content",
+    documentTypes: [Java],
+    mdx: {
+        remarkPlugins: [],
+    },
+});

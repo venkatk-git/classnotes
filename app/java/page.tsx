@@ -1,3 +1,11 @@
+import { allJavas } from "contentlayer/generated";
+import { MDXContent } from "@/components/mdx-components";
+
 export default function JavaPage() {
-    return <div>Java Page</div>;
+    const page = allJavas.find((doc) => doc.slugAsParams === "intro-trees");
+    return (
+        <div>
+            <MDXContent code={page.body.code} />
+        </div>
+    );
 }
