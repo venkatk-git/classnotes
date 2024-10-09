@@ -6,7 +6,7 @@ import { docsConfig } from "@/config/docs";
 
 export function DesktopSidebarNav() {
     return (
-        <div className="hidden lg:inline-block min-w-[250px] border-r border-border max-h-dvh">
+        <aside className="hidden lg:inline-block min-w-[250px] border-r border-border max-h-dvh">
             <div className="p-4 m-4 mt-0 flex justify-center">
                 <Link href="/" rel="norefferrer">
                     <div className="mr-2 flex items-center space-x-2">
@@ -16,6 +16,6 @@ export function DesktopSidebarNav() {
                 </Link>
             </div>
             <SidebarNav docs={docsConfig} />
-        </div>
+        </aside>
     );
 }

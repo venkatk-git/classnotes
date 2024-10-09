@@ -13,13 +13,13 @@ import { Button } from "./ui/button";
 export function MobileSidebarNav() {
     const [open, setOpen] = React.useState(false);
     return (
-        <div className="inline-block lg:hidden pt-2 pl-4">
+        <div className="inline-block lg:hidden pt-2">
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                     <Button
                         variant="ghost"
                         onClick={() => setOpen(true)}
-                        className="w-10 px-0"
+                        className="w-10 px-0 text-foreground/60 hover:text-accent-foreground"
                     >
                         <Menu className="w-6 h-6 hover:cursor-pointer" />
                     </Button>

@@ -9,7 +9,7 @@ export function SidebarNav({ docs }: SidebarNavProps) {
     const items = docs?.sidebarNav;
 
     return (
-        <div className="p-4 flex flex-col gap-4 bg-gray-100 dark:bg-gray-900/45 border border-border border-x-0">
+        <div className="p-4 flex flex-col gap-4 bg-gray-100 dark:bg-gray-900/45 border border-border border-x-0 min-w-[320px]">
             {items?.map((navItems, index) => (
                 <div key={`sidebar-nav-item-${index}`} className="text-sm">
                     <h4 className="font-semibold inline-block text-accent-foreground mb-1">

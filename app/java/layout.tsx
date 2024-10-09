@@ -4,13 +4,15 @@ import { DocsHeader } from "@/components/docs-header";
 
 function JavaLayout({ children }) {
     return (
-        <div className="flex w-full bg-background max-h-screen">
+        <div className="flex justify-center w-full bg-background max-h-screen">
             <aside>
                 <DesktopSidebarNav />
-                <MobileSidebarNav />
             </aside>
             <main className="px-4 flex flex-col flex-1 max-h-full overflow-y-scroll">
-                <DocsHeader />
+                <header className="flex gap-4">
+                    <MobileSidebarNav />
+                    <DocsHeader />
+                </header>
                 {children}
             </main>
         </div>
