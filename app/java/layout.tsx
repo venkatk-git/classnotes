@@ -8,7 +8,7 @@ function JavaLayout({ children }) {
             <aside>
                 <DesktopSidebarNav />
             </aside>
-            <main className="px-4 flex flex-col flex-1 max-h-full overflow-y-scroll">
+            <main className="px-4 flex flex-col flex-1 max-h-full max-w-full overflow-y-scroll">
                 <header className="flex gap-4">
                     <MobileSidebarNav />
                     <DocsHeader />
