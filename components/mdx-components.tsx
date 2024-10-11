@@ -32,7 +32,7 @@ const components = {
     pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
         <pre
             className={cn(
-                "break-all rounded-md max-w-full overflow-x-auto",
+                "break-all whitespace-pre-wrap rounded-md max-w-full overflow-x-auto",
                 className
             )}
             {...props}
