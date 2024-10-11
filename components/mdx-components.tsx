@@ -22,40 +22,53 @@ const components = {
         />
     ),
 
-    p: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    p: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLParagraphElement>) => (
         <p className={cn("mb-[1rem]", className)} {...props} />
     ),
 
-    strong: ({
-        className,
-        ...props
-    }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
+        <pre
+            className={cn(
+                "break-all rounded-md w-fit max-w-96 overflow-x-auto",
+                className
+            )}
+            {...props}
+        />
+    ),
+
+    strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
         <strong className={cn("font-bold", className)} {...props} />
     ),
 
     table: ({
         className,
         ...props
-    }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    }: React.HTMLAttributes<HTMLTableElement>) => (
         <table
             className={cn("text-base border-gray-600", className)}
             {...props}
         />
     ),
 
-    th: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    th: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLTableHeaderCellElement>) => (
         <th className={cn("border py-1 px-3", className)} {...props} />
     ),
 
-    td: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <table className={cn("border py-1 px-3", className)} {...props} />
-    ),
-
-    code: ({
+    td: ({
         className,
         ...props
-    }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <code className={cn("inline-code", className)} {...props} />
+    }: React.HTMLAttributes<HTMLTableDataCellElement>) => (
+        <td className={cn("border py-1 px-3", className)} {...props} />
+    ),
+
+    code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+        <code className={cn("p-2", className)} {...props} />
     ),
 };
 

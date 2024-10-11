@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const computedFields = {
     slug: {
@@ -37,5 +38,14 @@ export default makeSource({
     documentTypes: [Java],
     mdx: {
         remarkPlugins: [],
+        rehypePlugins: [
+            [
+                rehypePrettyCode,
+                {
+                    theme: "one-dark-pro",
+                    keepBackground: true,
+                },
+            ],
+        ],
     },
 });
