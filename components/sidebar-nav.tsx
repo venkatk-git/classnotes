@@ -24,7 +24,7 @@ export function SidebarNav({ docs }: SidebarNavProps) {
                         className="text-sm"
                     >
                         <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-200 dark:hover:bg-gray-900">
-                            <h4 className="font-semibold inline-block text-accent-foreground mb-1">
+                            <h4 className="font-semibold inline-block text-accent-foreground mb-1 text-left">
                                 {navItems.title}
                             </h4>
                         </AccordionTrigger>

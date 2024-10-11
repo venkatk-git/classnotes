@@ -55,24 +55,26 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
     }
 
     return (
-        <main className="flex flex-col">
-            <header className="sm:flex sm:items-center sm:justify-between md-4">
-                <div className="flex-1 min-w-0 flex flex-col gap-1">
-                    <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {javaDoc.title}
-                    </h1>
-                    <h3 className="text-muted-foreground font-medium">
-                        Author - {javaDoc.author}
-                    </h3>
-                    <h4 className="text-foreground italic">
-                        About this article - {javaDoc.description}
-                    </h4>
+        <div className="flex">
+            <main className="flex flex-col">
+                <header className="sm:flex sm:items-center sm:justify-between md-4">
+                    <div className="flex-1 min-w-0 flex flex-col gap-1">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
+                            {javaDoc.title}
+                        </h1>
+                        <h3 className="text-muted-foreground font-medium">
+                            Author - {javaDoc.author}
+                        </h3>
+                        <h4 className="text-foreground italic">
+                            About this article - {javaDoc.description}
+                        </h4>
+                    </div>
+                </header>
+                <Divider />
+                <div className="markdown">
+                    <MDXContent code={javaDoc.body.code} />
                 </div>
-            </header>
-            <Divider />
-            <div className="markdown">
-                <MDXContent code={javaDoc.body.code} />
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }
