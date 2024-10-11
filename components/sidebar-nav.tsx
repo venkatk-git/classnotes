@@ -12,7 +12,7 @@ interface SidebarNavProps {
 }
 
 export function SidebarNav({ docs }: SidebarNavProps) {
-    const items = docs?.sidebarNav;
+    const items = docs?.javaDocs;
 
     return (
         <div className="flex flex-col gap-4 bg-gray-100 dark:bg-gray-900/45 border border-border border-x-0 sm:min-w-[320px] h-[70dvh] overflow-y-auto">

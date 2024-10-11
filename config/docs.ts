@@ -1,121 +1,31 @@
 export const docsConfig = {
-    sidebarNav: [
+    javaDocs: [
         {
-            title: "Getting Started",
+            title: "Introduction",
             items: [
                 {
-                    title: "Introduction",
-                    href: "#",
+                    title: "Introduction to Java",
+                    href: "/java/introduction-to-java",
                     items: [],
                 },
                 {
-                    title: "Installation",
-                    href: "#",
+                    title: "Setting up Java environment",
+                    href: "/java/setting-up-java-environment",
+                    items: [],
+                },
+                {
+                    title: "Basic syntax and data types",
+                    href: "/java/basic-syntax-and-data-types",
                     items: [],
                 },
             ],
         },
         {
-            title: "Installation",
+            title: "Object Oriented Programming",
             items: [
                 {
-                    title: "Next.js",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Vite",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Remix",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Astro",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Laravel",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Gatsby",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Manual",
-                    href: "#",
-                    items: [],
-                },
-            ],
-        },
-        {
-            title: "Components",
-            items: [
-                {
-                    title: "Accordion",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Alert",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Alert Dialog",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Aspect Ratio",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Avatar",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Badge",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Breadcrumb",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Button",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Calendar",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Card",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Carousel",
-                    href: "#",
-                    items: [],
-                },
-                {
-                    title: "Chart",
-                    href: "#",
+                    title: "Classes and Objects",
+                    href: "/java/classes-and-objects",
                     items: [],
                 },
             ],

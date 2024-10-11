@@ -1,0 +1,207 @@
+---
+title: "Basic Syntax and Data Types in Java"
+author: Venkat
+description: An introduction to Java's fundamental syntax and data types
+---
+
+# Basic Syntax and Data Types in Java
+
+This guide introduces you to the basic syntax and data types in Java, providing a foundation for writing Java programs.
+
+## Java Program Structure
+
+A basic Java program consists of:
+
+1. Package declaration (optional)
+2. Import statements (optional)
+3. Class definition
+4. Main method (for executable programs)
+
+Here's a simple example:
+
+```java
+package com.example;
+
+import java.util.Scanner;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+## Variables and Data Types
+
+Java is a statically-typed language, which means you must declare a variable's type before using it.
+
+### Variable Declaration
+
+The syntax for declaring a variable is:
+
+```java
+dataType variableName = value;
+```
+
+For example:
+
+```java
+int age = 25;
+String name = "John";
+```
+
+### Primitive Data Types
+
+Java has eight primitive data types:
+
+1. **byte**: 8-bit signed two's complement integer
+
+    ```java
+    byte b = 100;
+    ```
+
+2. **short**: 16-bit signed two's complement integer
+
+    ```java
+    short s = 10000;
+    ```
+
+3. **int**: 32-bit signed two's complement integer
+
+    ```java
+    int i = 100000;
+    ```
+
+4. **long**: 64-bit signed two's complement integer
+
+    ```java
+    long l = 1000000000L;
+    ```
+
+5. **float**: 32-bit IEEE 754 floating point
+
+    ```java
+    float f = 3.14f;
+    ```
+
+6. **double**: 64-bit IEEE 754 floating point
+
+    ```java
+    double d = 3.14159265359;
+    ```
+
+7. **boolean**: true or false
+
+    ```java
+    boolean isJavaFun = true;
+    ```
+
+8. **char**: 16-bit Unicode character
+    ```java
+    char c = 'A';
+    ```
+
+### Reference Data Types
+
+Reference types are used to store complex objects. The most commonly used reference type is String:
+
+```java
+String greeting = "Hello, Java!";
+```
+
+## Operators
+
+Java provides various operators for performing operations on variables and values.
+
+### Arithmetic Operators
+
+-   `+` (addition)
+-   `-` (subtraction)
+-   `*` (multiplication)
+-   `/` (division)
+-   `%` (modulus)
+
+Example:
+
+```java
+int a = 10;
+int b = 3;
+int sum = a + b;  // 13
+int difference = a - b;  // 7
+int product = a * b;  // 30
+int quotient = a / b;  // 3
+int remainder = a % b;  // 1
+```
+
+### Comparison Operators
+
+-   `==` (equal to)
+-   `!=` (not equal to)
+-   `>` (greater than)
+-   `<` (less than)
+-   `>=` (greater than or equal to)
+-   `<=` (less than or equal to)
+
+Example:
+
+```java
+int x = 5;
+int y = 8;
+boolean isEqual = (x == y);  // false
+boolean isGreater = (x > y);  // false
+```
+
+### Logical Operators
+
+-   `&&` (logical AND)
+-   `||` (logical OR)
+-   `!` (logical NOT)
+
+Example:
+
+```java
+boolean a = true;
+boolean b = false;
+boolean result = a && b;  // false
+result = a || b;  // true
+result = !a;  // false
+```
+
+## Control Flow Statements
+
+Java uses control flow statements to determine the order in which statements are executed.
+
+### If-Else Statement
+
+```java
+int score = 85;
+if (score >= 90) {
+    System.out.println("Excellent");
+} else if (score >= 80) {
+    System.out.println("Good");
+} else {
+    System.out.println("Keep practicing");
+}
+```
+
+### For Loop
+
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+```
+
+### While Loop
+
+```java
+int count = 0;
+while (count < 5) {
+    System.out.println("Count: " + count);
+    count++;
+}
+```
+
+## Conclusion
+
+This guide covers the basic syntax and data types in Java. Understanding these fundamentals is crucial for writing Java programs. As you progress, you'll build upon these concepts to create more complex and powerful applications.

@@ -12,6 +12,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                xs: "400px",
+            },
             fontFamily: {
                 sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
             },
