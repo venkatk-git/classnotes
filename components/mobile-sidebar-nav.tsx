@@ -19,7 +19,7 @@ export function MobileSidebarNav() {
                     <Button
                         variant="ghost"
                         onClick={() => setOpen(true)}
-                        className="w-10 px-0 text-foreground/60 hover:text-accent-foreground"
+                        className="w-10 px-0 -ml-2 text-foreground/60 hover:text-accent-foreground"
                     >
                         <Menu className="w-6 h-6 hover:cursor-pointer" />
                     </Button>
