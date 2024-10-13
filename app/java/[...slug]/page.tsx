@@ -1,6 +1,8 @@
 import { allJavas } from "@/.contentlayer/generated";
 import { Divider } from "@/components/divider";
 import { MDXContent } from "@/components/mdx-components";
+import { MobileSidebarNav } from "@/components/mobile-sidebar-nav";
+import { DocsHeader } from "@/components/docs-header";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -55,11 +57,19 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
         return notFound();
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const toc = await getTableOfContents(javaDoc.body.raw);
 
     return (
         <div className="flex">
-            <main className="flex flex-col">
+            <aside className="hidden 2xl:inline-block order-2 mx-6 mt-48 flex-shrink-0 w-64">
+                Table Of Content
+            </aside>
+            <main className="flex flex-col order-1">
+                <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
+                    <MobileSidebarNav />
+                    <DocsHeader />
+                </header>
                 <header className="sm:flex sm:items-center sm:justify-between md-4">
                     <div className="flex-1 min-w-0 flex flex-col gap-1">
                         <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
@@ -74,6 +84,10 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                     </div>
                 </header>
                 <Divider />
+                <div className=" 2xl:hidden">
+                    Table of content
+                    <Divider />
+                </div>
                 <article className="markdown">
                     <MDXContent code={javaDoc.body.code} />
                 </article>
