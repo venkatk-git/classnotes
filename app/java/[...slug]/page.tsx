@@ -4,6 +4,7 @@ import { MDXContent } from "@/components/mdx-components";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { getTableOfContents } from "@/lib/toc";
 
 interface JavaDocPageProps {
     params: { slug: string[] };
@@ -54,6 +55,8 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
         return notFound();
     }
 
+    const toc = await getTableOfContents(javaDoc.body.raw);
+
     return (
         <div className="flex">
             <main className="flex flex-col">
@@ -71,9 +74,9 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                     </div>
                 </header>
                 <Divider />
-                <div className="markdown">
+                <article className="markdown">
                     <MDXContent code={javaDoc.body.code} />
-                </div>
+                </article>
             </main>
         </div>
     );
