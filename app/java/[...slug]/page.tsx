@@ -58,11 +58,10 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
         return notFound();
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const toc = await getTableOfContents(javaDoc.body.raw);
 
     return (
-        <div className="relative flex">
+        <div className="relative flex overflow-auto">
             <aside className="hidden 2xl:inline-block order-2 mx-6 mt-48 flex-shrink-0 w-64">
                 <div className="sticky">
                     <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
@@ -71,7 +70,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                     <TOC toc={toc} />
                 </div>
             </aside>
-            <main className="flex flex-col order-1">
+            <main className="flex flex-col order-1 z-10 h-full">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
                     <MobileSidebarNav />
                     <DocsHeader />

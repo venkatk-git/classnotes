@@ -15,13 +15,13 @@ export function SidebarNav({ docs }: SidebarNavProps) {
     const items = docs?.javaDocs;
 
     return (
-        <div className="flex flex-col gap-4 bg-gray-100 dark:bg-gray-900/45 border border-border border-x-0 sm:min-w-[320px] h-[70dvh] overflow-y-auto">
+        <div className="flex flex-col gap-4 sm:min-w-[320px] h-[70dvh] overflow-y-auto">
             <Accordion type="multiple">
                 {items?.map((navItems, index) => (
                     <AccordionItem
                         value={navItems.title}
                         key={`sidebar-nav-item-${index}`}
-                        className="text-sm"
+                        className="text-sm bg-gray-100 dark:bg-gray-900/45 border border-border border-x-0"
                     >
                         <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-200 dark:hover:bg-gray-900">
                             <h4 className="font-semibold inline-block text-accent-foreground mb-1 text-left">

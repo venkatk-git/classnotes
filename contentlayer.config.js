@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const computedFields = {
     slug: {
@@ -39,11 +41,21 @@ export default makeSource({
     mdx: {
         remarkPlugins: [],
         rehypePlugins: [
+            rehypeSlug,
             [
                 rehypePrettyCode,
                 {
                     theme: "one-dark-pro",
                     keepBackground: true,
+                },
+            ],
+            [
+                rehypeAutolinkHeadings,
+                {
+                    properties: {
+                        className: ["subheading-anchor"],
+                        ariaLabel: "Link to section",
+                    },
                 },
             ],
         ],
