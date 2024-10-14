@@ -65,7 +65,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
         <div className="relative flex">
             <aside className="hidden 2xl:inline-block order-2 mx-6 mt-48 flex-shrink-0 w-64">
                 <div className="sticky">
-                    <h2 className="uppercase text-foreground font-bold mb-2 text-sm tracking-wider">
+                    <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
                         Table of contents
                     </h2>
                     <TOC toc={toc} />
@@ -92,7 +92,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                 <Divider />
                 <div className=" 2xl:hidden">
                     <div className="sticky">
-                        <h2 className="uppercase text-foreground font-bold mb-2 text-sm tracking-wider">
+                        <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
                             Table of contents
                         </h2>
                         <TOC toc={toc} />

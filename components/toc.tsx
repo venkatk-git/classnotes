@@ -53,10 +53,10 @@ export function TOCTree({ tree, level = 1, activeItem }: TOCTreeProps) {
                         <a
                             href={item.url}
                             className={cn(
-                                "inline-block no-underline transition-colors hover:text-foreground",
+                                "inline-block no-underline transition-all dark:hover:text-gray-400 hover:font-medium hover:text-gray-900",
                                 item.url === `#${activeItem}`
-                                    ? "font-medium text-foreground"
-                                    : "text-muted-foreground"
+                                    ? "font-medium text-gray-900 dark:text-gray-400"
+                                    : "text-gray-600 dark:text-gray-500"
                             )}
                         >
                             {item.title}
