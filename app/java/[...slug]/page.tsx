@@ -7,6 +7,7 @@ import { DocsHeader } from "@/components/docs-header";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTableOfContents } from "@/lib/toc";
+import { TOC } from "@/components/toc";
 
 interface JavaDocPageProps {
     params: { slug: string[] };
@@ -61,9 +62,14 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
     const toc = await getTableOfContents(javaDoc.body.raw);
 
     return (
-        <div className="flex">
+        <div className="relative flex">
             <aside className="hidden 2xl:inline-block order-2 mx-6 mt-48 flex-shrink-0 w-64">
-                Table Of Content
+                <div className="sticky">
+                    <h2 className="uppercase text-foreground font-bold mb-2 text-sm tracking-wider">
+                        Table of contents
+                    </h2>
+                    <TOC toc={toc} />
+                </div>
             </aside>
             <main className="flex flex-col order-1">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
@@ -85,7 +91,12 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                 </header>
                 <Divider />
                 <div className=" 2xl:hidden">
-                    Table of content
+                    <div className="sticky">
+                        <h2 className="uppercase text-foreground font-bold mb-2 text-sm tracking-wider">
+                            Table of contents
+                        </h2>
+                        <TOC toc={toc} />
+                    </div>
                     <Divider />
                 </div>
                 <article className="markdown">
