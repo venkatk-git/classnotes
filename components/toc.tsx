@@ -31,11 +31,7 @@ export function TOC({ toc }) {
         return null;
     }
 
-    return (
-        <div className="space-x-2">
-            <TOCTree tree={toc} activeItem={activeHeading} />
-        </div>
-    );
+    return <TOCTree tree={toc} activeItem={activeHeading} />;
 }
 
 interface TOCTreeProps {
@@ -53,10 +49,10 @@ export function TOCTree({ tree, level = 1, activeItem }: TOCTreeProps) {
                         <a
                             href={item.url}
                             className={cn(
-                                "inline-block no-underline transition-all dark:hover:text-gray-400 hover:font-medium hover:text-gray-900",
+                                "inline-block no-underline transition-all text-gray-900 dark:text-gray-200 hover:underline hover:font-medium 2xl:dark:hover:text-gray-400 2xl:hover:text-gray-900",
                                 item.url === `#${activeItem}`
-                                    ? "font-medium text-gray-900 dark:text-gray-400"
-                                    : "text-gray-600 dark:text-gray-500"
+                                    ? "2xl:font-medium 2xl:text-gray-900 2xl:dark:text-gray-400"
+                                    : "2xl:text-gray-600 2xl:dark:text-gray-500"
                             )}
                         >
                             {item.title}

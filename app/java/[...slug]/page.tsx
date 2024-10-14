@@ -61,9 +61,9 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
     const toc = await getTableOfContents(javaDoc.body.raw);
 
     return (
-        <div className="relative flex overflow-auto">
-            <aside className="hidden 2xl:inline-block order-2 mx-6 mt-48 flex-shrink-0 w-64">
-                <div className="sticky">
+        <div className="relative flex overflow-auto max-w-6xl mx-auto">
+            <aside className="hidden xl:inline-block order-2 mx-6 flex-shrink-0 w-64">
+                <div className="fixed top-0  mx-6 mt-48">
                     <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
                         Table of contents
                     </h2>

@@ -3,11 +3,12 @@ import Link from "next/link";
 import { Icons } from "./icons";
 import { SidebarNav } from "./sidebar-nav";
 import { docsConfig } from "@/config/docs";
+import { Search } from "./search-docs";
 
 export function DesktopSidebarNav() {
     return (
         <aside className="sticky top-0 hidden lg:inline-block border-r border-border h-dvh max-h-screen">
-            <div className="p-3 m-4 mt-3 flex justify-center">
+            <div className="p-3 m-4 mt-3 flex flex-col items-center space-y-4">
                 <Link href="/" rel="norefferrer">
                     <div className="mr-2 flex items-center space-x-2">
                         <Icons.logo className="w-8 h-8" />
@@ -16,6 +17,7 @@ export function DesktopSidebarNav() {
                         </span>
                     </div>
                 </Link>
+                <Search />
             </div>
             <SidebarNav docs={docsConfig} />
         </aside>

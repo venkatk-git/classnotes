@@ -1,3 +1,4 @@
+"use client";
 import { SideBarDocsType } from "@/config/docs";
 import Link from "next/link";
 import {
@@ -6,6 +7,7 @@ import {
     AccordionTrigger,
     AccordionContent,
 } from "./ui/accordion";
+import React from "react";
 
 interface SidebarNavProps {
     docs: SideBarDocsType;
@@ -14,9 +16,19 @@ interface SidebarNavProps {
 export function SidebarNav({ docs }: SidebarNavProps) {
     const items = docs?.javaDocs;
 
+    const [openItems, setOpenItems] = React.useState([]);
+
+    React.useEffect(() => {
+        setOpenItems(items?.map((item) => item.title)); 
+    }, [items]);
+
     return (
         <div className="flex flex-col gap-4 sm:min-w-[320px] h-[70dvh] overflow-y-auto">
-            <Accordion type="multiple">
+            <Accordion
+                type="multiple"
+                value={openItems}
+                onValueChange={setOpenItems}
+            >
                 {items?.map((navItems, index) => (
                     <AccordionItem
                         value={navItems.title}
