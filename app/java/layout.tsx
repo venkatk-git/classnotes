@@ -6,7 +6,7 @@ function JavaLayout({ children }) {
             <aside className="flex-shrink-0 w-20rem">
                 <DesktopSidebarNav />
             </aside>
-            <main className="relative px-8 max-h-full flex-1 max-w-full overflow-y-auto">
+            <main className="relative px-4 md:px-6 lg:px-8 max-h-full flex-1 max-w-full overflow-y-auto">
                 {children}
             </main>
         </main>
