@@ -1,3 +1,4 @@
+import { Search } from "@/components/search-docs";
 import { SiteHeader } from "@/components/site-header";
 import Link from "next/link";
 
@@ -20,6 +21,9 @@ export default function Home() {
                         <br className="hidden md:block" />
                         designed to guide for starters.
                     </p>
+                    <div className="xs:hidden mb-8">
+                        <Search />
+                    </div>
                     <Link href={"/java"} className="relative mb-16 sm:mb-28">
                         <div className="absolute -inset-1 dark:-inset-1.5 bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg blur opacity-30 dark:opacity-50 -z-1 transition duration-1000 group-hover:opacity-50 dark:group-hover:opacity-75 " />
                         <span className="text-xl bg-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-gray-900 relative inline-block">

@@ -14,7 +14,7 @@ import {
 import { DialogTitle } from "./ui/dialog";
 import { docsConfig } from "@/config/docs";
 import { useRouter } from "next/navigation";
-import { FileIcon } from "lucide-react";
+import { BookOpenText, BookText } from "lucide-react";
 
 export function Search() {
     const router = useRouter();
@@ -26,7 +26,6 @@ export function Search() {
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
                 setOpen(true);
-                console.log("pressed");
             }
         }
 
@@ -45,7 +44,7 @@ export function Search() {
             <Button
                 variant="outline"
                 className={cn(
-                    "relative h-8 w-full mr-2 justify-start hidden xs:flex rounded-[0.5rem] bg-accent text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64 border-0"
+                    "relative h-8 w-full mr-2 justify-start rounded-[0.5rem] bg-accent text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64 border-0"
                 )}
                 onClick={() => setOpen(true)}
             >
@@ -59,32 +58,34 @@ export function Search() {
             </Button>
             <CommandDialog open={open} onOpenChange={setOpen}>
                 <DialogTitle asChild>
-                    <span className="sr-only">Search documentation</span>
+                    <span className="sr-only">Search in documentation</span>
                 </DialogTitle>
                 <CommandInput placeholder="Type a command or search..." />
                 <CommandList>
                     <CommandEmpty>No results found :(</CommandEmpty>
-                    <CommandGroup heading="Java">
-                        {docsConfig.javaDocs.map((group) => (
-                            <CommandGroup
-                                key={group.title}
-                                heading={group.title}
-                            >
-                                {group.items.map((item) => (
-                                    <CommandItem
-                                        key={item.href}
-                                        value={item.title}
-                                        onSelect={() =>
-                                            navigateCommand(item.href)
-                                        }
-                                    >
-                                        <FileIcon className="mr-2 h-4 w-4" />
-                                        <span>{item.title}</span>
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        ))}
+                    <CommandGroup heading="Links">
+                        <CommandItem
+                            value="Java"
+                            onSelect={() => navigateCommand("/java")}
+                        >
+                            <BookText className="mr-2 h-4 w-4" />
+                            Java
+                        </CommandItem>
                     </CommandGroup>
+                    {docsConfig.javaDocs.map((group) => (
+                        <CommandGroup key={group.title} heading={group.title}>
+                            {group.items.map((item) => (
+                                <CommandItem
+                                    key={item.href}
+                                    value={item.title}
+                                    onSelect={() => navigateCommand(item.href)}
+                                >
+                                    <BookOpenText className="mr-2 h-4 w-4" />
+                                    <span>{item.title}</span>
+                                </CommandItem>
+                            ))}
+                        </CommandGroup>
+                    ))}
                 </CommandList>
             </CommandDialog>
         </>

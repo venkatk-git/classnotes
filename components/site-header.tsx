@@ -15,7 +15,9 @@ export function SiteHeader() {
                 <MainNav />
                 <div className="flex flex-1 items-center justify-end space-x-2 lg:ml-6">
                     <nav className="flex items-center space-x-2">
-                        <Search />
+                        <div className="hidden xs:flex">
+                            <Search />
+                        </div>
                         <Link
                             href={siteConfig.links.github}
                             target="_blank"
