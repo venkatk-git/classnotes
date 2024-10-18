@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTableOfContents } from "@/lib/toc";
 import { TOC } from "@/components/toc";
-
+import Prerequisites from "@/components/markdown/prerequisites";
 interface JavaDocPageProps {
     params: { slug: string[] };
 }
@@ -63,7 +63,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
     return (
         <div className="relative flex overflow-auto max-w-6xl mx-auto">
             <aside className="hidden xl:inline-block order-2 mx-6 flex-shrink-0 w-64">
-                <div className="fixed top-0  mx-6 mt-48">
+                <div className="fixed top-0 mx-6 mt-48">
                     <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
                         Table of contents
                     </h2>
@@ -75,7 +75,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                     <MobileSidebarNav />
                     <DocsHeader />
                 </header>
-                <header className="sm:flex sm:items-center sm:justify-between md-4">
+                <header className="sm:flex sm:items-center sm:justify-between mb-4">
                     <div className="flex-1 min-w-0 flex flex-col gap-1">
                         <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
                             {javaDoc.title}
@@ -88,6 +88,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                         </h4>
                     </div>
                 </header>
+                <Prerequisites prerequisitesSlugs={javaDoc.prerequisites} />
                 <Divider />
                 <div className=" 2xl:hidden">
                     <div className="sticky">

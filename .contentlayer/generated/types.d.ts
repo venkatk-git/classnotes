@@ -16,6 +16,7 @@ export type Java = {
   title: string
   author: string
   description: string
+  prerequisites?: string[] | undefined
   /** MDX file body */
   body: MDX
   slug: string
