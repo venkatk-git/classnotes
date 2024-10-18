@@ -10,4 +10,11 @@ export const siteConfig = {
     },
 };
 
+export const javaInfo = {
+    name: "Java",
+    description:
+        "A free collection of curated, high-quality Java notes designed to guide for starters.",
+};
+
 export type SiteConfig = typeof siteConfig;
+export type JavaInfo = typeof javaInfo;

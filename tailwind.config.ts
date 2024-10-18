@@ -28,6 +28,8 @@ module.exports = {
                 "dark-high-emphasis": "rgba(255,255,255,0.87)",
                 "dark-med-emphasis": "rgba(255, 255, 255, 0.60)",
                 "dark-disabled-emphasis": "rgba(255, 255, 255, 0.38)",
+                "java-red-light": "#D6635A",
+                "java-red-dark": "#A33128",
                 cyan: colors.cyan,
                 teal: colors.teal,
                 orange: colors.orange,
