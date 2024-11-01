@@ -13,7 +13,7 @@ export const siteConfig = {
 export const javaInfo = {
     name: "Java",
     description:
-        "A free collection of curated, high-quality Java notes designed to guide for starters.",
+        "The topics listed below are just a starting point for learning Java. You might encounter concepts not covered here, or organized differently. If you prefer video tutorials, check out our free beginner-friendly Java course!",
 };
 
 export type SiteConfig = typeof siteConfig;
