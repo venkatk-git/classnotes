@@ -1,21 +1,19 @@
-import { CalloutClassNames, CalloutsTypes } from "@/lib/tailwind.utils";
+import { CalloutsTypes, CalloutClassNames } from "@/lib/tailwind.utils";
 import { cn } from "@/lib/utils";
-import React from "react";
 
-interface InfoProps {
-    type: "note" | "tip";
+interface WarningProps {
     children: React.ReactNode;
 }
 
-export default function Info({ type, children }: InfoProps) {
-    const IconName = CalloutsTypes[type].icon;
-    const IconClassName = CalloutsTypes[type].className;
+export default function Warning({ children }: WarningProps) {
+    const IconName = CalloutsTypes.warning.icon;
+    const IconClassName = CalloutsTypes.warning.className;
 
     return (
         <div
             className={cn(
                 "dark:bg-opacity-25 rounded-md p-4 mb-4 flex",
-                CalloutClassNames.wrapper[type]
+                CalloutClassNames.wrapper.warning
             )}
         >
             <div className="flex-shrink-0 mt-[1px]">
@@ -24,15 +22,15 @@ export default function Info({ type, children }: InfoProps) {
             <div className="ml-3 flex-1 flex flex-col">
                 <h3
                     className={cn(
-                        CalloutClassNames.h3[type],
+                        CalloutClassNames.h3.warning,
                         "text-sm leading-5 font-medium my-0"
                     )}
                 >
-                    {CalloutsTypes[type].name}
+                    {CalloutsTypes.warning.name}
                 </h3>
                 <div
                     className={cn(
-                        CalloutClassNames.content[type],
+                        CalloutClassNames.content.warning,
                         "text-sm leading-5 mt-2 no-y-margin"
                     )}
                 >

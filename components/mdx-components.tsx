@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "next-contentlayer2/hooks";
-import { Info } from "./markdown/info";
+import Info from "./markdown/info";
+import Warning from "./markdown/warning";
+import Danger from "./markdown/danger";
 
 const components = {
     h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -73,6 +75,8 @@ const components = {
     ),
 
     Info,
+    Warning,
+    Danger,
 };
 
 interface MDXProps {
