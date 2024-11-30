@@ -1,12 +1,9 @@
----
-
 # ClassNotes
 
 **ClassNotes** is an evolving platform designed to simplify the organization and accessibility of academic resources. It leverages modern web technologies to create a seamless user experience for managing, sharing, and interacting with class materials. 🚀
 
 > **Status**: 🚧 This project is currently under development. Java notes are actively being added, with more topics and features to follow. Feedback are welcome as we work to refine and expand its capabilities.
 
----
 
 ## 🌟 Key Features
 
