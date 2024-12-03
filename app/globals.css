@@ -111,6 +111,18 @@ html.dark {
 
 /* Markdown Styles */
 /* Additional vertical padding used by kbd tag. */
+/* .react-markdown > pre {
+    font-size: 1em;
+    line-height: 1.75;
+    padding: 0;
+    margin: 0;
+    background-color: transparent !important;
+    color: #3f3f46;
+    font-family: inherit;
+    overflow: visible;
+} */
+
+/* Additional vertical padding used by kbd tag. */
 .markdown {
     @apply leading-normal break-words;
 }
@@ -275,96 +287,24 @@ html.dark {
     @apply mb-0;
 }
 
-.markdown ol {
+.markdown .callout h3 {
+    @apply mt-[12px];
+}
+/* 
+.markdown ol ul {
+    @apply 
+} */
+
+/* .markdown ol {
     counter-reset: number;
-}
+} */
 
-.markdown ol > li {
-    display: flex;
-    counter-increment: number;
-}
+/* .markdown ol > li {
+        display: flex;
+        counter-increment: number;
+    } */
 
-.markdown ol > li:before {
+/* .markdown ol > li:before {
     content: counters(number, ".") ".";
     @apply text-blue-600 font-semibold mr-2;
-}
-
-.dark .markdown ol > li:before {
-    @apply text-blue-300;
-}
-
-.markdown kbd {
-    @apply text-xs inline-block rounded border px-1 py-0.5 align-middle font-normal font-mono shadow;
-}
-
-/* Override pygments style background color. */
-.markdown .highlight pre {
-    @apply bg-gray-100 !important;
-}
-
-.spoiler-body > pre {
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
-}
-
-.spoiler-body > pre:first-child {
-    margin-top: -2rem !important;
-}
-.spoiler-body > pre:last-child {
-    margin-bottom: -2rem !important;
-}
-.tailwind-alert > * + * {
-    @apply mb-2;
-}
-.tailwind-alert p {
-    @apply mb-2;
-}
-.tailwind-alert ul {
-    @apply mb-2;
-}
-.tailwind-alert ul li {
-    @apply mb-1;
-}
-.tailwind-alert > ul:last-child li:last-child {
-    @apply mb-0;
-}
-.tailwind-alert blockquote {
-    @apply text-sm;
-}
-.markdown .tailwind-alert a {
-    @apply text-black;
-}
-
-.markdown .tailwind-alert--info a {
-    @apply dark:text-blue-200;
-}
-.tailwind-alert--info blockquote {
-    @apply text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-500 dark:border-opacity-50;
-}
-.markdown .tailwind-alert--info code.inline-code {
-    @apply bg-blue-100 dark:bg-blue-800 dark:bg-opacity-50 dark:text-blue-200;
-}
-
-.markdown .tailwind-alert--warning a {
-    @apply dark:text-yellow-200;
-}
-.tailwind-alert--warning blockquote {
-    @apply text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-500 dark:border-opacity-50;
-}
-.markdown .tailwind-alert--warning code.inline-code {
-    @apply bg-yellow-100 dark:bg-yellow-800 dark:bg-opacity-50 dark:text-yellow-200;
-}
-
-.markdown .tailwind-alert--optional a {
-    @apply dark:text-purple-200;
-}
-.tailwind-alert--optional blockquote {
-    @apply text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-500 dark:border-opacity-50;
-}
-.markdown .tailwind-alert--optional code.inline-code {
-    @apply bg-purple-100 dark:bg-purple-800 dark:bg-opacity-50 dark:text-purple-200;
-}
-
-.markdown .tailwind-alert--danger a {
-    @apply dark:text-red-200;
-}
+} */

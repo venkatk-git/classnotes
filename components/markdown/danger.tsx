@@ -12,8 +12,8 @@ export default function Danger({ children }: DangerProps) {
     return (
         <div
             className={cn(
-                "dark:bg-opacity-25 rounded-md p-4 mb-4 flex",
-                CalloutClassNames.wrapper.danger
+                CalloutClassNames.wrapper.danger,
+                "dark:bg-opacity-25 rounded-md p-4 mb-4 flex"
             )}
         >
             <div className="flex-shrink-0 mt-[1px]">

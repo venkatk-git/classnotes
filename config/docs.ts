@@ -9,8 +9,8 @@ export const docsConfig = {
                     items: [],
                 },
                 {
-                    title: "Setting up Java environment",
-                    href: "/java/setting-up-java-environment",
+                    title: "Installing and Setting Up Java",
+                    href: "/java/installing-and-setting-up-java",
                     items: [],
                 },
                 {

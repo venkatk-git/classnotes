@@ -12,8 +12,8 @@ export default function Warning({ children }: WarningProps) {
     return (
         <div
             className={cn(
-                "dark:bg-opacity-25 rounded-md p-4 mb-4 flex",
-                CalloutClassNames.wrapper.warning
+                CalloutClassNames.wrapper.warning,
+                "dark:bg-opacity-25 rounded-md p-4 mb-4 flex"
             )}
         >
             <div className="flex-shrink-0 mt-[1px]">
