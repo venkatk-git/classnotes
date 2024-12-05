@@ -14,7 +14,8 @@ export default function Info({ type, children }: InfoProps) {
     return (
         <div
             className={cn(
-                "bg-blue-50 dark:bg-blue-700 dark:bg-opacity-25 rounded-md p-4 mb-4 flex callout"
+                "bg-blue-50 dark:bg-blue-700 dark:bg-opacity-25 rounded-md p-4 mb-4 flex callout",
+                CalloutClassNames.wrapper[type]
             )}
         >
             <div className="flex-shrink-0 mt-[1px]">
