@@ -209,7 +209,11 @@ html.dark {
 }
 
 .markdown code.inline-code {
-    @apply font-mono inline bg-gray-200 rounded px-1 py-0.5 dark:bg-gray-800;
+    @apply font-mono inline rounded px-1 py-0.5;
+}
+
+.markdown code.inline-code:not(pre) {
+    @apply bg-gray-200 dark:bg-gray-800;
 }
 
 .markdown table:not(.no-markdown) {
@@ -223,7 +227,7 @@ html.dark {
     }
 }
 
-.markdown ul:not(.no-markdown) {
+.markdown > ul:not(.no-markdown) {
     @apply pl-8 list-disc mb-6;
 }
 .markdown ol {
@@ -286,10 +290,11 @@ html.dark {
 .markdown ol p {
     @apply mb-0;
 }
-
-.markdown .callout h3 {
-    @apply mt-[12px];
+.markdown li > ul,
+.markdown li > ol {
+    @apply pl-0;
 }
+
 /* 
 .markdown ol ul {
     @apply 

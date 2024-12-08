@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { getTableOfContents } from "@/lib/toc";
 import { TOC } from "@/components/toc";
 import Prerequisites from "@/components/markdown/prerequisites";
+import useDocsConfigContext from "@/hooks/useDocsConfigContext";
 interface JavaDocPageProps {
     params: { slug: string[] };
 }
@@ -52,6 +53,7 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function JavaDocPage({ params }: JavaDocPageProps) {
+    // const javaDocs = useDocsConfigContext();
     const javaDoc = await getDocFromParams({ params });
 
     if (!javaDoc) {
@@ -73,7 +75,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
             <main className="flex flex-col order-1 z-10 h-full">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
                     <MobileSidebarNav />
-                    <DocsHeader />
+                    <DocsHeader next="#" prev="#" />
                 </header>
                 <header className="sm:flex sm:items-center sm:justify-between mb-4">
                     <div className="flex-1 min-w-0 flex flex-col gap-1">
