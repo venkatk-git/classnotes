@@ -1,6 +1,3 @@
-"use client";
-
-import useDocsConfigContext from "@/hooks/useDocsConfigContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
