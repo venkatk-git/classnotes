@@ -1,3 +1,6 @@
+"use client";
+
+import useDocsConfigContext from "@/hooks/useDocsConfigContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -7,6 +10,10 @@ interface DockHeaderProps {
 }
 
 export function DocsHeader({ next, prev }: DockHeaderProps) {
+    // const javaDocs = useDocsConfigContext();
+
+    // console.log(javaDocs);
+
     return (
         <header className="container flex h-14 max-w-screen-2xl items-center">
             <nav className="flex w-full items-center justify-end gap-6 sm:justify-between space-x-2 text-foreground/60 font-semibold">

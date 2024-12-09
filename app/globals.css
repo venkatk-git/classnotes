@@ -127,6 +127,10 @@ html.dark {
     @apply leading-normal break-words;
 }
 
+/* To unset the background color applied from the .inline-code class */
+figure pre > .inline-code {
+    background-color: transparent !important; 
+}
 .markdown p {
     @apply mb-4;
 }
