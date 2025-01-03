@@ -6,7 +6,7 @@ interface DockHeaderProps {
     prev: string;
 }
 
-export function DocsHeader({ next, prev }: DockHeaderProps) {
+export function Paginator({ next, prev }: DockHeaderProps) {
     // const javaDocs = useDocsConfigContext();
 
     // console.log(javaDocs);

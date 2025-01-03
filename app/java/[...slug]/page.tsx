@@ -2,7 +2,7 @@ import { allJavas } from "@/.contentlayer/generated";
 import { Divider } from "@/components/divider";
 import { MDXContent } from "@/components/mdx-components";
 import { MobileSidebarNav } from "@/components/mobile-sidebar-nav";
-import { DocsHeader } from "@/components/docs-header";
+import { Paginator } from "@/components/paginator";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -73,7 +73,7 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
             <main className="flex flex-col order-1 z-10 h-full">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
                     <MobileSidebarNav />
-                    <DocsHeader next="#" prev="#" />
+                    <Paginator next="#" prev="#" />
                 </header>
                 <header className="sm:flex sm:items-center sm:justify-between mb-4">
                     <div className="flex-1 min-w-0 flex flex-col gap-1">
@@ -102,6 +102,9 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
                 <article className="markdown">
                     <MDXContent code={javaDoc.body.code} />
                 </article>
+                <footer>
+                    <Paginator next="#" prev="#" />
+                </footer>
             </main>
         </div>
     );

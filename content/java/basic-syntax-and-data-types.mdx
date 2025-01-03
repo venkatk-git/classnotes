@@ -48,9 +48,11 @@ The syntax for declaring a variable is:
     for this problem.
 </Info>
 
+<CodeBlock>
 ```java
 dataType variableName = value;
-````
+```
+</CodeBlock>
 
 For example:
 
@@ -65,60 +67,31 @@ String name = "John";
 
 Java has eight primitive data types:
 
-1. **byte**: 8-bit signed two's complement integer
+1. **byte**: 8-bit signed two's complement integer `byte b = 100;`
 
-    ```java
-    byte b = 100;
-    ```
+2. **short**: 16-bit signed two's complement integer `short s = 10000;`
 
-2. **short**: 16-bit signed two's complement integer
+3. **int**: 32-bit signed two's complement integer `int i = 100000;`
 
-    ```java
-    short s = 10000;
-    ```
+4. **long**: 64-bit signed two's complement integer `long l = 1000000000L;`
 
-3. **int**: 32-bit signed two's complement integer
+5. **float**: 32-bit IEEE 754 floating point `float f = 3.14f;`    
 
-    ```java
-    int i = 100000;
-    ```
+6. **double**: 64-bit IEEE 754 floating point `double d = 3.14159;`
 
-4. **long**: 64-bit signed two's complement integer
+7. **boolean**: true or false `boolean isTrue = true;`
 
-    ```java
-    long l = 1000000000L;
-    ```
-
-5. **float**: 32-bit IEEE 754 floating point
-
-    ```java
-    float f = 3.14f;
-    ```
-
-6. **double**: 64-bit IEEE 754 floating point
-
-    ```java
-    double d = 3.14159265359;
-    ```
-
-7. **boolean**: true or false
-
-    ```java
-    boolean isJavaFun = true;
-    ```
-
-8. **char**: 16-bit Unicode character
-    ```java
-    char c = 'A';
-    ```
+8. **char**: 16-bit Unicode character `char c = 'A';`
 
 ### Reference Data Types
 
 Reference types are used to store complex objects. The most commonly used reference type is String:
 
+<CodeBlock>
 ```java
 String greeting = "Hello, Java!";
 ```
+</CodeBlock>
 
 ## Operators
 

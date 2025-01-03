@@ -18,7 +18,9 @@ export default function Prerequisites({
     }
 
     const prerequisites: Prerequisite[] = prerequisitesSlugs.map((slug) => {
-        const doc = allJavas.find((java) => java.slugAsParams === slug.trim());
+        const doc = allJavas.find(
+            (java) => java.slugAsParams === slug.trimEnd()
+        );
 
         if (!doc) {
             return {
