@@ -129,7 +129,7 @@ html.dark {
 
 /* To unset the background color applied from the .inline-code class */
 figure pre > .inline-code {
-    background-color: transparent !important; 
+    background-color: transparent !important;
 }
 .markdown p {
     @apply mb-4;
@@ -140,9 +140,9 @@ figure pre > .inline-code {
     font-size: 0.875rem;
 }
 
-.markdown > * + * {
+/* .markdown > * + * {
     @apply mt-0 mb-4;
-}
+} */
 
 .markdown > *:first-child {
     @apply mt-0;

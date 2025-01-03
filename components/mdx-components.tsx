@@ -3,6 +3,7 @@ import { useMDXComponent } from "next-contentlayer2/hooks";
 import Info from "./markdown/info";
 import Warning from "./markdown/warning";
 import Danger from "./markdown/danger";
+import CodeBlock from "./markdown/code-block";
 
 const components = {
     h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -157,7 +158,7 @@ const components = {
         return (
             <pre
                 className={cn(
-                    "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border py-4 whitespace-pre-wrap",
+                    "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg px-2 whitespace-pre-wrap",
                     className
                 )}
                 {...props}
@@ -167,7 +168,7 @@ const components = {
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
         <code
             className={cn(
-                "relative rounded px-[0.8rem] py-[0.2rem] font-mono text-sm inline-code",
+                "relative rounded px-[0.8rem] font-mono text-sm inline-code",
                 className
             )}
             {...props}
@@ -177,6 +178,7 @@ const components = {
     Info,
     Warning,
     Danger,
+    CodeBlock,
 };
 
 interface MDXProps {
