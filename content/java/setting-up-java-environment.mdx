@@ -18,10 +18,7 @@ This guide will help you set up your Java development environment. We'll cover i
 
 Open a command prompt or terminal and type:
 
-```bash
-java -version
-javac -version
-```
+<CodeBlock>```bash java -version javac -version ```</CodeBlock>
 
 If installed correctly, you should see the version information for both commands.
 
@@ -41,10 +38,10 @@ If installed correctly, you should see the version information for both commands
 
 Add the following to your ~/.bash_profile or ~/.zshrc:
 
-```bash
-export JAVA_HOME=/path/to/your/jdk
-export PATH=$JAVA_HOME/bin:$PATH
-```
+<CodeBlock>
+    ```bash export JAVA_HOME=/path/to/your/jdk export PATH=$JAVA_HOME/bin:$PATH
+    ```
+</CodeBlock>
 
 Replace `/path/to/your/jdk` with the actual path to your JDK installation.
 
@@ -71,6 +68,7 @@ Popular IDEs for Java development include:
 3. Create a new Java class named `HelloWorld`.
 4. Enter the following code:
 
+<CodeBlock>
 ```java
 public class HelloWorld {
     public static void main(String[] args) {
@@ -78,6 +76,7 @@ public class HelloWorld {
     }
 }
 ```
+</CodeBlock>
 
 5. Run the program to see "Hello, World!" printed in the console.
 

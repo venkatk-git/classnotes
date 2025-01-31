@@ -28,6 +28,7 @@ OOP offers several advantages:
 
 ### Defining the Class
 
+<CodeBlock>
 ```java
 class Car {
     // Attributes
@@ -45,20 +46,24 @@ class Car {
     }
 }
 ```
+</CodeBlock>
 
 ### Attributes
 
 Attributes define the properties of an object:
 
+<CodeBlock>
 ```java
 String brand;
 int speed;
 ```
+</CodeBlock>
 
 ### Methods
 
 Methods define the behavior of an object:
 
+<CodeBlock>
 ```java
 void start() {
     System.out.println(brand + " is starting.");
@@ -69,15 +74,18 @@ void accelerate(int increment) {
     System.out.println("New speed: " + speed);
 }
 ```
+</CodeBlock>
 
 ### Creating Objects
 
 An object is an instance of a class. To create an object, we use the `new` keyword followed by a call to a constructor of the class.
 
+<CodeBlock>
 ```java
 Car car1 = new Car(); // Object creation
 car1.start();         // Using an object to call a method
 ```
+</CodeBlock>
 
 This creates a new `Car` object with the specified brand, model, and year.
 
@@ -85,7 +93,9 @@ This creates a new `Car` object with the specified brand, model, and year.
 
 We can access the fields and methods of an object using the dot notation:
 
+<CodeBlock>
 ```java
 System.out.println(myCar.brand);  // Outputs: Toyota
 myCar.startEngine();  // Outputs: The Toyota Corolla is starting...
 ```
+</CodeBlock>
