@@ -9,10 +9,17 @@ import type { Metadata } from "next";
 import { getTableOfContents } from "@/lib/toc";
 import { TOC } from "@/components/toc";
 import Prerequisites from "@/components/markdown/prerequisites";
+import { docsConfig } from "@/config/docs";
 interface JavaDocPageProps {
     params: { slug: string[] };
 }
 
+/**
+ * This function gets the document from the params
+ *
+ * @param param0
+ * @returns
+ */
 async function getDocFromParams({ params }: JavaDocPageProps) {
     const slug = params.slug?.join("/") || " ";
     const java = allJavas.find((java) => java.slugAsParams === slug);
@@ -23,6 +30,13 @@ async function getDocFromParams({ params }: JavaDocPageProps) {
 
     return java;
 }
+
+/**
+ * This function generates the metadata for the JavaDocPage
+ *
+ * @param params
+ * @returns
+ */
 
 export async function generateMetadata({
     params,
@@ -43,6 +57,11 @@ export async function generateMetadata({
     };
 }
 
+/**
+ * This function generates the static paths for the JavaDocPage
+ *
+ * @returns
+ */
 export async function generateStaticParams(): Promise<
     JavaDocPageProps["params"][]
 > {
@@ -51,6 +70,12 @@ export async function generateStaticParams(): Promise<
     }));
 }
 
+/**
+ * This is the main component for the JavaDocPage
+ *
+ * @param params
+ * @returns
+ */
 export default async function JavaDocPage({ params }: JavaDocPageProps) {
     const javaDoc = await getDocFromParams({ params });
 
@@ -59,6 +84,8 @@ export default async function JavaDocPage({ params }: JavaDocPageProps) {
     }
 
     const toc = await getTableOfContents(javaDoc.body.raw);
+
+    console.log(docsConfig.javaDocs);
 
     return (
         <div className="relative px-4 md:px-6 lg:px-8 flex overflow-auto max-w-6xl mx-auto">

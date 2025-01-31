@@ -37,6 +37,14 @@ export const Java = defineDocumentType(() => ({
                 type: "string",
             },
         },
+        next: {
+            type: "string",
+            required: false,
+        },
+        previous: {
+            type: "string",
+            required: false,
+        },
     },
     computedFields,
 }));

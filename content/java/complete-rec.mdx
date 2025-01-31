@@ -22,6 +22,7 @@ possibilities.
 Then, we return the difference between the two sums once we've reached the end
 of the array.
 
+<CodeBlock>
 ```java
 import java.io.*;
 import java.util.*;
@@ -54,6 +55,7 @@ public class AppleDivision {
 	// CodeSnip{Kattio}
 }
 ```
+</CodeBlock>
 
 #### Generating Subsets with Bitmasks
 
@@ -140,6 +142,7 @@ You'll notice that our code contains some fancy bitwise operations:
 If you wanna learn more about them, we have a
 [dedicated module](/silver/intro-bitwise) for bitwise operations.
 
+<CodeBlock>
 ```java
 import java.io.*;
 import java.util.*;
@@ -175,6 +178,7 @@ public class AppleDivision {
 	// CodeSnip{Kattio}
 }
 ```
+</CodeBlock>
 
 ## Permutations
 
@@ -235,6 +239,7 @@ $s$. For each function call, add an available character to the current string,
 and call with that string. When the current string has the
 same size as $s$, we've found a permutation and can add it to the list.
 
+<CodeBlock>
 ```java
 import java.io.*;
 import java.util.*;
@@ -265,7 +270,7 @@ public class CreatingStrings1 {
 		Kattio io = new Kattio();
 		s = io.next();
 
-		for (int i = 0; i < s.length(); i++) { charCount[s.charAt(i) - 'a']++; }
+		for (int i = 0; i <CodeBlock s.length(); i++) { charCount[s.charAt(i) - 'a']++; }
 
 		search("");
 
@@ -277,6 +282,8 @@ public class CreatingStrings1 {
 	// CodeSnip{Kattio}
 }
 ```
+</CodeBlock>
+
 
 #### Generating Permutations Using [`next_permutation`](https://en.cppreference.com/w/cpp/algorithm/next_permutation)
 
@@ -433,6 +440,7 @@ queen arrangement:
 Doing this cuts down the number of arrangements we have to check down to
 a much more managable $8!$.
 
+<CodeBlock>
 ```java
 import java.io.*;
 
@@ -484,6 +492,7 @@ public class ChessboardQueens {
 	}
 }
 ```
+</CodeBlock>
 
 ## Problems
 
