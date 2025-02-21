@@ -43,8 +43,6 @@
     "slugAsParams": "classes-and-objects"
   },
   {
-<<<<<<< HEAD
-=======
     "title": "Complete Search with Recursion",
     "author": "Many",
     "description": "Harder problems involving iterating through the entire solution space, including those that require generating subsets and permutations.\r",
@@ -65,7 +63,6 @@
     "slugAsParams": "complete-rec"
   },
   {
->>>>>>> dev
     "title": "Installing and Setting Up Java",
     "author": "Venkat",
     "description": "A Beginner's Guide to Installing and Setting Up Java.\r",
