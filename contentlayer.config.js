@@ -37,13 +37,56 @@ export const Java = defineDocumentType(() => ({
                 type: "string",
             },
         },
+        next: {
+            type: "string",
+            required: false,
+        },
+        previous: {
+            type: "string",
+            required: false,
+        },
+    },
+    computedFields,
+}));
+
+export const React = defineDocumentType(() => ({
+    name: "React",
+    filePathPattern: `react/**/*.mdx`,
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true,
+        },
+        author: {
+            type: "string",
+            required: true,
+        },
+        description: {
+            type: "string",
+            required: true,
+        },
+        prerequisites: {
+            type: "list",
+            of: {
+                type: "string",
+            },
+        },
+        next: {
+            type: "string",
+            required: false,
+        },
+        previous: {
+            type: "string",
+            required: false,
+        },
     },
     computedFields,
 }));
 
 export default makeSource({
     contentDirPath: "content",
-    documentTypes: [Java],
+    documentTypes: [Java, React],
     mdx: {
         remarkPlugins: [],
         rehypePlugins: [

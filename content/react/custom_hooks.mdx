@@ -1,0 +1,188 @@
+---
+title: "Mastering Custom Hooks in React: Simplify Your Components Like a Pro"
+author: Venkat 
+description: Learn how to create and use custom hooks to make your React components cleaner, reusable, and more efficient.  
+---
+
+# Custom Hooks: Your Secret Weapon in React
+
+Custom hooks are like toolboxes for React developers. They let you package complex logic into reusable functions
+that any component can use—imagine turning a messy kitchen drawer into a neatly labeled toolkit.
+Let’s break down what they are, why they matter, and how to build them.
+
+---
+
+## Why Custom Hooks?
+
+1. **Kill Repetition**  
+   If you’ve copied the same logic across multiple components (like fetching data or tracking window size), custom hooks eliminate the duplication.
+
+2. **Organize Chaos**  
+   They help you separate concerns. Instead of a giant component that does everything, split logic into focused hooks.
+
+3. **Reusability**  
+   Share hooks across projects or teams. Write once, use everywhere!
+
+### Example Without Custom Hooks: The Problem
+
+<CodeBlock>
+```jsx
+function ComponentA() {
+  const [count, setCount] = useState(0);
+  // Duplicated counter logic
+  const increment = () => setCount(c => c + 1);
+  return <button onClick={increment}>{count}</button>;
+}
+
+function ComponentB() {
+const [count, setCount] = useState(0);
+// Same logic again!
+const increment = () => setCount(c => c + 1);
+return <div onClick={increment}>Count: {count}</div>;
+}
+
+````
+</CodeBlock>
+
+*Both components repeat the same counter logic. Yuck!*
+
+---
+
+## Building Your First Custom Hook
+
+Let’s create `useWindowSize` to track browser window dimensions.
+
+### Step 1: Create the Hook
+<CodeBlock>
+```javascript
+import { useState, useEffect } from 'react';
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty dependency = runs once
+
+  return windowSize;
+}
+````
+
+</CodeBlock>
+
+**What’s Happening Here?**
+
+-   `useState` tracks the window size.
+-   `useEffect` adds a resize listener and cleans it up (prevents memory leaks).
+-   The hook **returns** the current window size.
+
+### Step 2: Use the Hook in Components
+
+<CodeBlock>
+```jsx
+function ResponsiveComponent() {
+    const { width, height } = useWindowSize(); // Magic here!
+
+return (
+<div>
+Window: {width}px x {height}px
+</div>
+);
+}
+
+````
+</CodeBlock>
+
+*No duplicate resize logic! Just import and use.*
+
+---
+
+## Another Example: useFetch for Data Loading
+
+Let’s build a hook to fetch data from an API.
+
+### The Hook
+<CodeBlock>
+```javascript
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
+  }, [url]); // Re-runs if URL changes
+
+  return { data, loading, error };
+}
+````
+
+</CodeBlock>
+
+### Using the Hook
+
+<CodeBlock>
+```jsx
+function UserProfile() {
+  const { data, loading, error } = useFetch('/api/user/123');
+
+if (loading) return <p>Loading...</p>;
+if (error) return <p>Oops! {error.message}</p>;
+
+return (
+<div>
+<h1>{data.name}</h1>
+<p>{data.email}</p>
+</div>
+);
+}
+
+```
+</CodeBlock>
+
+---
+
+## Best Practices for Custom Hooks
+
+1. **Always Name Hooks with `use*`**
+   This convention helps React (and other devs) recognize its a hook.
+
+2. **Keep Hooks Focused**
+   Each hook should do **one thing**. Split complex logic into multiple hooks.
+
+3. **Leverage Dependency Arrays**
+   In `useEffect`, specify when the effect should re-run (e.g., when a URL changes).
+
+---
+
+## Conclusion
+
+Custom hooks turn you into a React superhero:
+- 🛠 **Reuse logic** effortlessly.
+- 🧩 **Simplify components** by moving logic out.
+- ⚡ **Boost productivity** across projects.
+
+**Remember:** Great developers don’t repeat themselves—they build hooks!
+
+---
+```

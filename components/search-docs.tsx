@@ -71,8 +71,29 @@ export function Search() {
                             <BookText className="mr-2 h-4 w-4" />
                             Java
                         </CommandItem>
+                        <CommandItem
+                            value="React"
+                            onSelect={() => navigateCommand("/react")}
+                        >
+                            <BookText className="mr-2 h-4 w-4" />
+                            React
+                        </CommandItem>
                     </CommandGroup>
                     {docsConfig.javaDocs.map((group) => (
+                        <CommandGroup key={group.title} heading={group.title}>
+                            {group.items.map((item) => (
+                                <CommandItem
+                                    key={item.href}
+                                    value={item.title}
+                                    onSelect={() => navigateCommand(item.href)}
+                                >
+                                    <BookOpenText className="mr-2 h-4 w-4" />
+                                    <span>{item.title}</span>
+                                </CommandItem>
+                            ))}
+                        </CommandGroup>
+                    ))}
+                    {docsConfig.react_docs.map((group) => (
                         <CommandGroup key={group.title} heading={group.title}>
                             {group.items.map((item) => (
                                 <CommandItem

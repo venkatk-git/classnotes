@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { Icons } from "./icons";
 import { siteConfig } from "@/config/site";
@@ -27,6 +26,17 @@ export function MainNav() {
                 href="/java"
             >
                 Java
+            </Link>
+            <Link
+                className={cn(
+                    "text-md font-medium transition-colors hover:text-primary hidden sm:inline-block",
+                    pathname === "/react"
+                        ? "text-foreground"
+                        : "text-foreground/60"
+                )}
+                href="/react"
+            >
+                React
             </Link>
             <Link
                 className={cn(

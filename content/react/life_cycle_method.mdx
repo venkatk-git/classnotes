@@ -1,0 +1,190 @@
+---
+title: "Life Cycle Methods in React (Functional Components)"
+author: Venkat
+description: A beginner-friendly guide to understanding React's lifecycle methods using functional components and hooks.
+---
+
+# Life Cycle Methods in React (Functional Components)
+
+In functional components, React hooks like `useEffect` replace the lifecycle methods used in class components. Let’s break down the three phases of a component’s lifecycle and how to handle them using hooks.
+
+---
+
+## Phases of Life Cycle in Functional Components
+
+1. **Mounting Phase** - When a component is first created and added to the DOM.
+2. **Updating Phase** - When a component re-renders due to changes in state or props.
+3. **Unmounting Phase** - When a component is removed from the DOM.
+
+Let’s explore each phase with examples.
+
+---
+
+## Mounting Phase
+
+In functional components, the `useEffect` hook with an empty dependency array (`[]`) mimics the `componentDidMount` lifecycle method.
+
+### Example: Fetching Data on Mount
+<CodeBlock>
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    console.log('Component mounted!');
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []); // Empty dependency array = runs only on mount
+
+  if (loading) return <p>Loading...</p>;
+  return <div>{JSON.stringify(data)}</div>;
+}
+```
+</CodeBlock>
+
+**What’s Happening?**
+- `useEffect` runs once when the component is mounted.
+- The empty dependency array (`[]`) ensures it only runs once.
+
+---
+
+## Updating Phase
+
+The `useEffect` hook can also handle updates when specific state or props change. This mimics the `componentDidUpdate` lifecycle method.
+
+### Example: Tracking State Changes
+<CodeBlock>
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('Count updated:', count);
+  }, [count]); // Runs whenever `count` changes
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+</CodeBlock>
+
+**What’s Happening?**
+- The `useEffect` hook runs every time the `count` state changes.
+- The dependency array (`[count]`) specifies that the effect should re-run when `count` updates.
+
+---
+
+## Unmounting Phase
+
+To handle cleanup when a component is removed from the DOM, you can return a cleanup function from `useEffect`. This mimics the `componentWillUnmount` lifecycle method.
+
+### Example: Cleanup on Unmount
+<CodeBlock>
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+
+    // Cleanup function
+    return () => {
+      console.log('Component unmounted!');
+      clearInterval(intervalId);
+    };
+  }, []); // Empty dependency array = runs only on mount and unmount
+
+  return <p>Time: {time} seconds</p>;
+}
+```
+</CodeBlock>
+
+**What’s Happening?**
+- The `useEffect` hook sets up a timer when the component mounts.
+- The cleanup function (`return () => { ... }`) clears the timer when the component unmounts.
+
+---
+
+## Combining All Phases
+
+Here’s an example that combines mounting, updating, and unmounting in a single functional component:
+
+<CodeBlock>
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch user data on mount or when userId changes
+  useEffect(() => {
+    console.log('Fetching user data...');
+    setLoading(true);
+    fetch(`https://api.example.com/users/${userId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data);
+        setLoading(false);
+      });
+
+    // Cleanup function
+    return () => {
+      console.log('Cleaning up...');
+    };
+  }, [userId]); // Re-runs when userId changes
+
+  if (loading) return <p>Loading...</p>;
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <p>{user.email}</p>
+    </div>
+  );
+}
+```
+</CodeBlock>
+
+**What’s Happening?**
+- The `useEffect` hook fetches user data when the component mounts or when the `userId` prop changes.
+- The cleanup function runs when the component unmounts or before the effect re-runs.
+
+---
+
+## Summary of Lifecycle Methods in Functional Components
+
+| Phase       | Hook Usage                          | Purpose                                                                 |
+|-------------|-------------------------------------|-------------------------------------------------------------------------|
+| Mounting    | `useEffect(() => {}, [])`           | Runs once when the component mounts.                                    |
+| Updating    | `useEffect(() => {}, [state/prop])` | Runs when specific state or props change.                               |
+| Unmounting  | `useEffect(() => { return () => {} }, [])` | Cleanup function runs when the component unmounts.              |
+
+---
+
+## Key Takeaways 🎯
+- Use `useEffect` to handle mounting, updating, and unmounting in functional components.
+- The **dependency array** controls when the effect runs:
+  - `[]` → Runs only on mount.
+  - `[state/prop]` → Runs when the state or prop changes.
+- Return a **cleanup function** for unmounting or pre-effect cleanup.
+
+Now you’re ready to manage component lifecycles in functional React like a pro! 🚀
+
+---

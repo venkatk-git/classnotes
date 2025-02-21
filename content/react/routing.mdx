@@ -1,0 +1,245 @@
+---
+title: "Routing (RBAC) in React: Secure Your App Like a Pro"
+author: Venkat
+description: Learn how to implement Role-Based Access Control (RBAC) in React routing using the `createBrowserRouter` API from React Router. Includes practical examples for beginners.
+---
+
+# Routing (RBAC) in React: Guard Your Routes Like a VIP Bouncer 🔐
+
+RBAC (Role-Based Access Control) is like a nightclub bouncer for your app - it only lets users into routes they're authorized to access. Let's build a secure routing system step by step using the `createBrowserRouter` API from React Router.
+
+---
+
+## How to Handle Protected Routes in React
+
+### Step 1: Create a User Context (Authentication)
+<CodeBlock>
+```jsx
+import { createContext, useContext, useState } from 'react';
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState({
+    name: 'Alice',
+    role: 'user', // Try changing to 'admin'
+    isAuthenticated: true
+  });
+
+  return (
+    <AuthContext.Provider value={{ user }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => useContext(AuthContext);
+```
+</CodeBlock>
+
+### Step 2: Create a ProtectedRoute Component
+<CodeBlock>
+```jsx
+import { Navigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
+function ProtectedRoute({ children, allowedRoles }) {
+  const { user } = useAuth();
+
+  if (!user.isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!allowedRoles.includes(user.role)) {
+    return <Navigate to="/unauthorized" replace />;
+  }
+
+  return children;
+}
+```
+</CodeBlock>
+### Step 3: Implement in App Routing with `createBrowserRouter`
+<CodeBlock>
+```jsx
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AuthProvider } from './AuthContext';
+import ProtectedRoute from './ProtectedRoute';
+import Login from './Login';
+import Unauthorized from './Unauthorized';
+import Dashboard from './Dashboard';
+import AdminPanel from './AdminPanel';
+
+const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/unauthorized',
+    element: <Unauthorized />,
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute allowedRoles={['user', 'admin']}>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminPanel />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '*',
+    element: <NotFound />,
+  },
+]);
+
+function App() {
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
+}
+```
+</CodeBlock>
+---
+
+## Dynamic Routing in React: Build Routes Like Lego Blocks 🧱
+
+### Step 1: Create Route Configurations
+<CodeBlock>
+```jsx
+const routeConfig = [
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+    allowedRoles: ['user', 'admin']
+  },
+  {
+    path: '/admin',
+    element: <AdminPanel />,
+    allowedRoles: ['admin']
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+    allowedRoles: ['user', 'admin']
+  }
+];
+```
+</CodeBlock>
+### Step 2: Generate Dynamic Routes
+<CodeBlock>
+```jsx
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
+function AppRoutes() {
+  const { user } = useAuth();
+  
+  const filteredRoutes = routeConfig
+    .filter(route => route.allowedRoles.includes(user.role))
+    .map(route => ({
+      path: route.path,
+      element: (
+        <ProtectedRoute allowedRoles={route.allowedRoles}>
+          {route.element}
+        </ProtectedRoute>
+      )
+    }));
+
+  const router = createBrowserRouter([
+    ...filteredRoutes,
+    { path: '/login', element: <Login /> },
+    { path: '*', element: <NotFound /> }
+  ]);
+
+  return <RouterProvider router={router} />;
+}
+```
+</CodeBlock>
+### Step 3: Dynamic Navigation Menu
+<CodeBlock>
+```jsx
+function NavBar() {
+  const { user } = useAuth();
+  
+  return (
+    <nav>
+      {routeConfig
+        .filter(route => route.allowedRoles.includes(user.role))
+        .map((route) => (
+          <Link key={route.path} to={route.path}>
+            {route.path.replace('/', '')}
+          </Link>
+        ))}
+    </nav>
+  );
+}
+```
+</CodeBlock>
+---
+
+## Putting It All Together: Complete RBAC Flow
+
+1. **Authentication Check**: Is user logged in?
+2. **Role Verification**: Does user have required role?
+3. **Dynamic Navigation**: Show only authorized links
+4. **Route Rendering**: Display only accessible pages
+
+<CodeBlock>
+```jsx
+// Full implementation example
+function App() {
+  return (
+    <AuthProvider>
+      <NavBar />
+      <AppRoutes />
+    </AuthProvider>
+  );
+}
+```
+</CodeBlock>
+---
+
+## Key Takeaways 🎯
+
+1. **Protected Routes** act as security checkpoints
+2. **Dynamic Routing** adapts to user roles
+3. **RBAC Pattern**:
+   - Centralized route configuration
+   - Role-based filtering
+   - Context API for state management
+4. Always provide:
+   - Login/Logout flows
+   - "Unauthorized" page
+   - 404 handling
+
+---
+
+## Real-World Example: E-commerce App Roles
+
+| Role      | Accessible Routes               |
+|-----------|---------------------------------|
+| Guest     | /login, /products               |
+| Customer  | /cart, /orders                  |
+| Admin     | /admin, /analytics              |
+
+<CodeBlock>
+```jsx
+// Try this in your code!
+const userRoles = {
+  guest: ['/login', '/products'],
+  user: ['/cart', '/orders'],
+  admin: ['/admin', '/analytics']
+};
+```
+</CodeBlock>
+Now you're ready to build enterprise-grade secured React apps! 🚀 

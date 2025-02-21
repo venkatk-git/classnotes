@@ -158,7 +158,7 @@ const components = {
         return (
             <pre
                 className={cn(
-                    "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg px-2 whitespace-pre-wrap",
+                    "mb-4 mt-6 overflow-x-auto rounded-lg px-2 whitespace-pre-wrap",
                     className
                 )}
                 {...props}
