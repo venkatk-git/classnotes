@@ -8,18 +8,21 @@ import {
     AccordionContent,
 } from "./ui/accordion";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 interface SidebarNavProps {
     docs: SideBarDocsType;
 }
 
 export function SidebarNav({ docs }: SidebarNavProps) {
-    const items = docs?.javaDocs;
+    const pathname = usePathname();
+    const items =
+        docs[pathname.split("/")[1] === "react" ? "react_docs" : "javaDocs"];
 
     const [openItems, setOpenItems] = React.useState([]);
 
     React.useEffect(() => {
-        setOpenItems(items?.map((item) => item.title)); 
+        setOpenItems(items?.map((item) => item.title));
     }, [items]);
 
     return (

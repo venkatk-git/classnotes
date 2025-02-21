@@ -1,0 +1,228 @@
+---
+title: "Hooks In React"
+author: Venkat
+description: A beginner-friendly guide to React Hooks with practical examples.
+---
+
+# Hooks In React
+
+React Hooks allow you to use state and other React features without writing a class. Here’s a breakdown of the core React hooks with examples:
+
+---
+
+## useState() Hook 🧩
+
+**Purpose**: Adds state to functional components.
+
+<CodeBlock>
+```jsxjsx
+import React, { useState } from 'react';
+
+function Counter() {
+const [count, setCount] = useState(0);
+
+return (
+<div>
+<p>You clicked {count} times</p>
+<button onClick={() => setCount(count + 1)}>
+Click me
+</button>
+</div>
+);
+}
+
+````
+</CodeBlock>
+
+How It Works:
+useState(0) initializes count to 0.
+setCount updates count, triggering a re-render.
+
+### Key Points:
+State updates don’t merge—setCount replaces the entire state.
+Use it for simple state management.
+
+## useEffect() Hook 🔄
+**Purpose**: Runs side effects in components (e.g., fetching data, updating the DOM).
+
+<CodeBlock>
+```jsxjsx
+import React, { useState, useEffect } from 'react';
+
+function User() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/octocat')
+      .then(response => response.json())
+      .then(data => setUser(data));
+  }, []);
+
+  return (
+    user ? (
+      <div>{user.name}</div>
+    ) : (
+      <div>Loading...</div>
+    )
+  );
+}
+````
+
+</CodeBlock>
+
+### Clean up function
+
+<CodeBlock>
+```jsxjsx
+useEffect(() => {
+    const intervalId = setInterval(() => console.log('Tick'), 1000);
+
+return () => {
+clearInterval(intervalId); // Cleanup on unmount
+};
+}, []);
+
+````
+</CodeBlock>
+
+## useContext() Hook 📡
+Purpose: Reads data from a Context without prop drilling.
+
+<CodeBlock>
+```jsx
+import React, { createContext, useContext } from 'react';
+
+const ThemeContext = createContext('light');
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar() {
+  const theme = useContext(ThemeContext);
+  return <div>{theme === 'dark' ? 'moon' : 'sun'}</div>;
+}
+````
+
+</CodeBlock>
+
+## useReducer() Hook 🔃
+
+Purpose: Alternative to useState for complex state logic.
+Why: We can create a centralized state and update logic in a reducer function.
+
+<CodeBlock>
+```jsxjsx
+import React, { useReducer } from 'react';
+
+const initialState = { items: [], total: 0 };
+
+function reducer(state, action) {
+switch (action.type) {
+case 'ADD_ITEM':
+return {
+items: [...state.items, action.payload],
+total: state.total + action.payload.price
+};
+default:
+return state;
+}
+}
+
+function ShoppingCart() {
+const [state, dispatch] = useReducer(reducer, initialState);
+
+return (
+<div>
+<p>Total: ${state.total}</p>
+<button onClick={() => dispatch({ type: 'ADD_ITEM', payload: { price: 10 } })}>
+Add Item
+</button>
+</div>
+);
+}
+
+````
+</CodeBlock>
+
+## useMemo() Hook 🧠
+Purpose: Memoizes a value (prevents unnecessary recalculations).
+
+<CodeBlock>
+```jsx
+import React, { useMemo } from 'react';
+
+function HeavyCalculations({ count }) {
+  const expensiveValue = useMemo(() =>
+    let result = 1;
+    for (let i = 1; i <= 1000000; i++) {
+      result *= i * count;
+    }
+    return result;
+  } , [count]);
+
+  return <div>The result is {expensiveValue}</div>;
+}
+````
+
+</CodeBlock>
+
+## useCallback() Hook 🎫
+
+Purpose: Memoizes a callback function.
+
+<CodeBlock>
+```jsx
+import React, { useCallback } from 'react';
+
+function Parent() {
+const memoizedCallback = useCallback(() => {
+console.log('This callback is memoized!');
+}, []);
+
+return <Child onClick={memoizedCallback} />;
+}
+
+function Child({ onClick }) {
+return <button onClick={onClick}>Click</button>;
+}
+
+````
+</CodeBlock>
+
+## useRef() Hook 🏗️
+Purpose: Persists values across renders (no re-renders when updated).
+
+<CodeBlock>
+```jsx
+import React, { useRef } from 'react';
+
+function Form() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <>
+      <input ref={inputRef} type="text" />
+      <button onClick={focusInput}>Focus Input</button>
+    </>
+  );
+}
+````
+
+</CodeBlock>
+
+### Key Takeaways 🎯
+
+-   useState and useEffect are foundational.
+-   useReducer and useContext help with complex apps.
+-   Memoization Hooks (useMemo, useCallback) optimize performance.
+-   useRef for DOM interactions and mutable storage.
+-   Now you’re equipped to build React apps with modern patterns! 🚀
