@@ -55,10 +55,6 @@ export async function generateMetadata({
             description: javaDoc.description,
         },
     };
-}
-
-/**
- * This function generates the static paths for the JavaDocPage
  *
  * @returns
  */

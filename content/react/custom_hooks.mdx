@@ -35,13 +35,13 @@ function ComponentA() {
 }
 
 function ComponentB() {
-const [count, setCount] = useState(0);
-// Same logic again!
-const increment = () => setCount(c => c + 1);
-return <div onClick={increment}>Count: {count}</div>;
+  const [count, setCount] = useState(0);
+  // Same logic again!
+  const increment = () => setCount(c => c + 1);
+  return <div onClick={increment}>Count: {count}</div>;
 }
 
-````
+```
 </CodeBlock>
 
 *Both components repeat the same counter logic. Yuck!*
@@ -54,7 +54,7 @@ Let’s create `useWindowSize` to track browser window dimensions.
 
 ### Step 1: Create the Hook
 <CodeBlock>
-```javascript
+```jsx
 import { useState, useEffect } from 'react';
 
 function useWindowSize() {
@@ -77,8 +77,7 @@ function useWindowSize() {
 
   return windowSize;
 }
-````
-
+```
 </CodeBlock>
 
 **What’s Happening Here?**
@@ -94,14 +93,13 @@ function useWindowSize() {
 function ResponsiveComponent() {
     const { width, height } = useWindowSize(); // Magic here!
 
-return (
-<div>
-Window: {width}px x {height}px
-</div>
-);
+  return (
+    <div>
+    Window: {width}px x {height}px
+    </div>
+  );
 }
-
-````
+```
 </CodeBlock>
 
 *No duplicate resize logic! Just import and use.*
@@ -135,8 +133,7 @@ function useFetch(url) {
 
   return { data, loading, error };
 }
-````
-
+```
 </CodeBlock>
 
 ### Using the Hook
@@ -146,17 +143,16 @@ function useFetch(url) {
 function UserProfile() {
   const { data, loading, error } = useFetch('/api/user/123');
 
-if (loading) return <p>Loading...</p>;
-if (error) return <p>Oops! {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Oops! {error.message}</p>;
 
-return (
-<div>
-<h1>{data.name}</h1>
-<p>{data.email}</p>
-</div>
-);
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.email}</p>
+    </div>
+  );
 }
-
 ```
 </CodeBlock>
 
@@ -183,6 +179,3 @@ Custom hooks turn you into a React superhero:
 - ⚡ **Boost productivity** across projects.
 
 **Remember:** Great developers don’t repeat themselves—they build hooks!
-
----
-```

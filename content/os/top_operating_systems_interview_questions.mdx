@@ -1,0 +1,97 @@
+---
+title: "Top Operating Systems Interview Questions"
+author: Venkat
+description: "Top Operating Systems Interview Questions"
+prerequisites:
+---
+
+# Top Operating Systems Interview Questions
+1. What is the difference between a kernal and shell?
+2. What is virtual memory and how does it work?
+3. What is the difference between a process and a thread?
+4. What is deadlock in operating system? How does we can prevent it?
+5. What is semaphore in operating system? How is it used in operating system?
+6. What is a context switch in an operating system?
+7. What is a page fault and how is it handled in an operating system?
+8. What is a scheduling algorithm in an operating system and what are the different types?
+
+## 1. What is the difference between a kernal and shell?
+In an Operating System, 
+- The `kernel` is the core component of the operating system, which is reponsible for various functionalities for the OS like process management, memory management, file management, etc. It is a bridge between the software and the hardware.
+- The `shell` is a user interface, that we can use to communicate with the system using commands. For example, cmd in Windows, bash in Linux, etc.
+
+## 2. What is virtual memory and how does it work?
+Virtual memory is a memory management technique that allows the system to use the disk space in addition to the RAM. It enables the process to use more memory than physically availabe in RAM.
+
+### 2.1 How does it work?
+- When a process is running in virtual address space, it is divided into multiple pages,
+- The pages that are not used frequently are moved to the disk (swap space),
+- If a required page is not available in RAM a page fault occurs, and the os swaps the page from the dist to RAM,
+- This way, the process can use more memory than physically available in RAM.
+
+## 3. What is the difference between a process and a thread?
+In an Operating System,
+- A `process` is a instance of a program that is being executed. It has its own memory space, resources, etc.
+- A `thread` is a subset of a process. A process can have multiple thread. These thread shares the memory of the process. These are also called as **lightweight processes**.
+
+
+## 4. What is deadlock in operating system? How does we can prevent it?
+Deadlock is a situation where two or more processes are waiting for a some resources that never become available. This leads to a situation where none of a process can move further.
+**Example**: Process A is holding resource R1 and waiting for R2, while another Process B is waiting for R1 and holding R2.
+
+### Conditions for Deadlock:
+1. Mutual Exclusion,
+2. Hold and wait,
+3. No preemption,
+4. Circular wait.
+
+### How to prevent deadlock?
+There are several ways to prevent deadlock,
+1. **Deadlock Avoidance:** Banker's Algoritm, Resource Allocation Graph.
+    - Banker's Algorithm: It checks before allocating the resource, if the system will remain in a safe state or not after allocating the resource.
+    - Resource Allocation Graph: It is a graph that shows relationship between the processes and resources in the system, if this graph has no cycle, then the system remains in safe state.
+2. **Deadlock Detection and Recovery:** 
+    - Detection: Periodically checks for the deadlock in the system.
+    - Recovery: Once the deadlock is detected, the system can recover by killing the processes, or by preemting the resources from the processes.
+    
+## 5. What is semaphore in operating system? How is it used in operating system?
+**Semaphore** is a synchronization mechanism used in operating system to control the access of shared memory by multiple processes or threads to prevent race conditions. 
+It is a** integer variable** that can be accessed by different processes or threads, and it can be incremented or decremented **atomically**.
+
+### Operations on Semaphore:
+1. **Wait:** It decrements the semaphore value.
+2. **Signal:** It increments the semaphore value.
+
+### Types of Semaphores:
+1. **Binary Semaphore:** It can have only two values, 0 or 1. It is used for mutual exclusion.
+2. **Counting Semaphore:** It can have values greater than 1, and it is used for resource allocation the value of semaphore represents the number of resources available.
+
+### How semaphore works?
+- Semaphore is intialized with value (1 for binary, N for counting),
+- When a process wants to access the shared memory aka when it enters the critical section, it calls the wait operation,
+- The **wait operation** checks the semaphore value wheather it is greater than 0 or not,
+- If the value is greater than 0, then it decrements the semaphore value and allows the process or thread to the critical section,
+- If the value is 0, then the process or thread is blocked until the semaphore value is greater than 0,
+- Once the process or thread exits the critical section, it calls the signal operations, 
+- The **signal operation** increments the semaphore value.
+
+### How semaphore is used in operating system?
+- Semaphore is used in os for process synchronization, 
+- It is used for multiprogramming, multitasking, etc.
+- It is used for cuncurrency programming, etc..
+
+## 6. What is a context switch in an operating system?
+**Context switching** in os is the process of storing the process control block (PCB) of the currently running process and loading the process control block (PCB) of the next process to be executed. It is done by CPU scheduler.
+Context switching is essential for multitasking, and it is used to prevent the starvation of the processes.
+
+## 7. What is a page fault and how is it handled in an operating system?
+**Page Fault** is a situation when a process tries to access a page that is not currently availabe in the main memory but in the disk, then the os retrieves the page from the disk to the main memory. 
+
+### How is it handled in an operating system?
+1. OS checks for the demanded page in the page table of the process,
+2. If the page is not available in the main memory, then it is a page fault,
+3. OS checks for the page in the disk, if it exists in the disk, if not process termiantes with an **segmentaion fault error**,
+4. If page existes and there are some free space availabe in the RAM it directly loads the page to the RAM, if RAM is full, then it swaps a page from the RAM with the demanded page with some algorithm like LRU, FIFO, etc.
+
+## 8. What is a scheduling algorithm in an operating system and what are the different types?
+
