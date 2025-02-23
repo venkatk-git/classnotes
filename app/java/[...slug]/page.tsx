@@ -55,9 +55,8 @@ export async function generateMetadata({
             description: javaDoc.description,
         },
     };
- *
- * @returns
- */
+}
+
 export async function generateStaticParams(): Promise<
     JavaDocPageProps["params"][]
 > {
