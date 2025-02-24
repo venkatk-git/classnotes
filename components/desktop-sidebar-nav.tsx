@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 export function DesktopSidebarNav() {
     const pathname = usePathname();
 
-    if (pathname === "/java" || pathname === "/react") {
+    if (pathname === "/java" || pathname === "/react" || pathname === "/os") {
         return null;
     }
 

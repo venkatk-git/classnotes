@@ -22,6 +22,12 @@ export const reactInfo = {
         "The topics listed below are just a starting point for learning React. You might encounter concepts not covered here, or organized differently. If you prefer video tutorials, check out our free beginner-friendly React course!",
 };
 
+export const osInfo = {
+    name: "Operating Systems",
+    description:
+        "The topics listed below are just a starting point for learning Operating Systems. You might encounter concepts not covered here, or organized differently. If you prefer video tutorials, check out our free beginner-friendly Operating Systems course!",
+};
+
 export type SiteConfig = typeof siteConfig;
 export type JavaInfo = typeof javaInfo;
 export type ReactInfo = typeof reactInfo;

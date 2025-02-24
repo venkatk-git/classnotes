@@ -25,6 +25,23 @@ export type Java = {
   slugAsParams: string
 }
 
+export type OS = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'OS'
+  title: string
+  author: string
+  description: string
+  prerequisites?: string[] | undefined
+  next?: string | undefined
+  previous?: string | undefined
+  /** MDX file body */
+  body: MDX
+  slug: string
+  slugAsParams: string
+}
+
 export type React = {
   /** File path relative to `contentDirPath` */
   _id: string
@@ -50,8 +67,8 @@ export type React = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Java | React
-export type DocumentTypeNames = 'Java' | 'React'
+export type DocumentTypes = Java | OS | React
+export type DocumentTypeNames = 'Java' | 'OS' | 'React'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
@@ -60,6 +77,7 @@ export type DataExports = {
   allDocuments: DocumentTypes[]
   allJavas: Java[]
   allReacts: React[]
+  allOs: OS[]
 }
 
 
@@ -80,6 +98,7 @@ declare global {
 
 export type DocumentTypeMap = {
   Java: Java
+  OS: OS
   React: React
 }
 

@@ -16,8 +16,21 @@ interface SidebarNavProps {
 
 export function SidebarNav({ docs }: SidebarNavProps) {
     const pathname = usePathname();
-    const items =
-        docs[pathname.split("/")[1] === "react" ? "react_docs" : "javaDocs"];
+    let items;
+    switch (pathname.split("/")[1]) {
+        case "react":
+            items = docs.react_docs;
+            break;
+        case "java":
+            items = docs.javaDocs;
+            break;
+        case "os":
+            items = docs.os_questions;
+            break;
+        default:
+            items = docs.javaDocs;
+            break;
+    }
 
     const [openItems, setOpenItems] = React.useState([]);
 
