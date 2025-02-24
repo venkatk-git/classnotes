@@ -39,6 +39,12 @@ export function MobileNav() {
                     <MobileLink href="/java" onOpenChange={setOpen}>
                         Java
                     </MobileLink>
+                    <MobileLink href="/react" onOpenChange={setOpen}>
+                        React
+                    </MobileLink>
+                    <MobileLink href="/os" onOpenChange={setOpen}>
+                        Operating Systems
+                    </MobileLink>
                     <MobileLink href="/java" onOpenChange={setOpen}>
                         About
                     </MobileLink>
