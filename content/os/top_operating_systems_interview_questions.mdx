@@ -14,6 +14,13 @@ prerequisites:
 6. What is a context switch in an operating system?
 7. What is a page fault and how is it handled in an operating system?
 8. What is a scheduling algorithm in an operating system and what are the different types?
+9. What are LRU and LFU cache?
+10. What is Thrashing?
+11. What is Belady’s Anomaly?
+12. What is Banker's Algorithm?
+13. What is Memory Management Unit (MMU)?
+14. What is cache memory in an operating system?
+15. Difference between Paging and Segmentation.
 
 ## 1. What is the difference between a kernal and shell?
 In an Operating System, 
@@ -94,4 +101,64 @@ Context switching is essential for multitasking, and it is used to prevent the s
 4. If page existes and there are some free space availabe in the RAM it directly loads the page to the RAM, if RAM is full, then it swaps a page from the RAM with the demanded page with some algorithm like LRU, FIFO, etc.
 
 ## 8. What is a scheduling algorithm in an operating system and what are the different types?
+**Scheduling algorithm** is the algorithm used by the CPU scheduler to schedule the processes in the system. It is used to decied which process is going to be executed next.
+The CPU scheduler decides which algorithm to use based on the system need's, such as maximizing the throughput, CPU utilization, etc.
+
+1. Non-preemptive Scheduling Algorithms:
+    - **First Come First Serve (FCFS):** It schedules the process based on the arrival time of the process.
+    - **Shortest Job First (SJF):** It schedules the process based on the burst time (how much time process need for execution) of the process.
+
+2. Preemptive Scheduling Algorithms:
+    - **Shortest Remaining Time First (SRTF):** It schedules the process based on the remaining burst time of the process.
+    - **Round Robin (RR):** It schedules the process based on the a fixed time slice known as **time quantum**, before moving to the next process.
+    - **Priority Scheduling (PS):** It schedules the process based on the priority of the process, the process with the highest priority first.
+    - **Multilevel Queue Scheduling (MLQ):** Processes are divied into multiple queues based on priority, it schedules the process based on the multiple queues, each queue has its own scheduling algorithm.
+    - **Multilevel Feedback Queue (MFL):** Similar to MLQ, but the process can move between the queues based on the priority dynamically.
+
+## 9. What are LRU and LFU cache?
+- **LRU (Least Recently Used)** cache is a cache replacement algorithm that replaces the **least recently used cache block with the new cache block**.
+- **LFU (Least Frequently Used)** cache is a cache replacement algorithm that replaces the **least frequently used cache block with the new cache block**.
+
+## 10. What is Thrashing?
+**Thrashing** is a situation where the system spends more time in swapping pages between the disk and the main memory then executing the process.
+Tharahing occurs when the system has insufficient memory to run the program. Example, in a 4Gb RAM system, if the system is running 5Gb of programs, then the system spends more time in swapping the pages between the disk and the main memory.
+
+## 11. What is Belady’s Anomaly?
+**Belady's Anomaly** is a issue in the page replacement algorithm, where increasing the number of frames may increase page faults.
+Belady's Anomaly is observed in the FIFO page replacement algorithm,
+1. In FIFO, the page that is loaded first replace first, regardless of future needs,
+2. Adding more frames can cause usefull pages to be replaced,
+3. Increasing the number of page faults.
+
+## 12. What is Banker's Algorithm?
+**Banker's Algorithm** is a deadlock avoidance algorithm, it checks for safe state before allocating the resources to the processes.
+
+### How Banker's Algorithm works?
+1. Every process declares the maximum resources it needs,
+2. The system checks if the resources is allocated to the process, if the system remains in the safe state,
+3. If the system remains in the safe state, then the resources are allocated to the process, else the process is blocked until the resources are available.
+
+## 13. What is Memory Management Unit (MMU)?
+**Memory Management Unit (MMU)** is a hardware unit that is responsible to handle the memory request of processes, it translating the virtual address to the physical address. This is responsible for paging, segmentaion.
+
+## 14. What is cache memory in an operating system?
+**Cache memory** is a small memory unit that is used to store the frequently used data, so the the CPU don't have to access the main memory RAM every time. It is faster than the main memory.
+
+### Why cache memory is needed?
+- Cache memory is much faster than the main memory RAM, so the CPU can access the data faster.
+- This reduces the memory access time, and imporves the execution speed.
+
+### Types of Cache Memory:
+1. **L1 Cache:** It is the fastest cache memory, it is present in the CPU itself size is around 32KB to 128KB.
+2. **L2 Cache:** It is slower than L1 cache, but faster than the main memory, it is present in the CPU itself, size is around 256KB to 512KB.
+3. **L3 Cache:** It is slower than L2 cache, but faster than the main memory, it is present in the CPU itself, size is around 1MB to 8MB.
+
+## 15. Difference between Paging and Segmentation.
+- **Paging** is a memory management technique that divides the memory into fixed size pages, but caueses a potential of internal fragmentation.
+- **Segmentation** is a memory management technique that divides the memory into variable size segments, but caueses a potential of external fragmentation.
+
+## 16. What happens when we do fork()?
+`fork()` is a system call that creates new child process from the current process, the child process is the exact copy of the parent process, and it executes from the next line of the fork().
+- The child process (the newly created process) return 0, if the fork() is successful else it returns -1.
+- The parent process return the process id of the child process.
 
