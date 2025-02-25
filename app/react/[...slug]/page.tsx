@@ -9,17 +9,11 @@ import type { Metadata } from "next";
 import { getTableOfContents } from "@/lib/toc";
 import { TOC } from "@/components/toc";
 import Prerequisites from "@/components/markdown/prerequisites";
-import { docsConfig } from "@/config/docs";
+
 interface ReactDocPageProps {
     params: { slug: string[] };
 }
 
-/**
- * This function gets the document from the params
- *
- * @param param0
- * @returns
- */
 async function getDocFromParams({ params }: ReactDocPageProps) {
     const slug = params.slug?.join("/") || " ";
     const doc = allReacts.find((doc) => doc.slugAsParams === slug);
@@ -30,13 +24,6 @@ async function getDocFromParams({ params }: ReactDocPageProps) {
 
     return doc;
 }
-
-/**
- * This function generates the metadata for the reactDocPage
- *
- * @param params
- * @returns
- */
 
 export async function generateMetadata({
     params,
@@ -57,11 +44,6 @@ export async function generateMetadata({
     };
 }
 
-/**
- * This function generates the static paths for the reactDocPage
- *
- * @returns
- */
 export async function generateStaticParams(): Promise<
     ReactDocPageProps["params"][]
 > {
@@ -70,12 +52,6 @@ export async function generateStaticParams(): Promise<
     }));
 }
 
-/**
- * This is the main component for the reactDocPage
- *
- * @param params
- * @returns
- */
 export default async function ReactDocPage({ params }: ReactDocPageProps) {
     const reactDoc = await getDocFromParams({ params });
 
@@ -84,8 +60,6 @@ export default async function ReactDocPage({ params }: ReactDocPageProps) {
     }
 
     const toc = await getTableOfContents(reactDoc.body.raw);
-
-    console.log(docsConfig.react_docs);
 
     return (
         <div className="relative px-4 md:px-6 lg:px-8 flex overflow-auto max-w-6xl mx-auto">
@@ -100,7 +74,10 @@ export default async function ReactDocPage({ params }: ReactDocPageProps) {
             <main className="flex flex-col order-1 z-10 h-full">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
                     <MobileSidebarNav />
-                    <Paginator next="#" prev="#" />
+                    <Paginator
+                        next={reactDoc.next || "#"}
+                        prev={reactDoc.previous || "#"}
+                    />
                 </header>
                 <header className="sm:flex sm:items-center sm:justify-between mb-4">
                     <div className="flex-1 min-w-0 flex flex-col gap-1">
@@ -115,7 +92,9 @@ export default async function ReactDocPage({ params }: ReactDocPageProps) {
                         </h4>
                     </div>
                 </header>
-                <Prerequisites prerequisitesSlugs={reactDoc.prerequisites} />
+                <Prerequisites
+                    prerequisitesSlugs={reactDoc.prerequisites || []}
+                />
                 <Divider />
                 <div className=" 2xl:hidden">
                     <div className="sticky">
@@ -127,7 +106,11 @@ export default async function ReactDocPage({ params }: ReactDocPageProps) {
                     <Divider />
                 </div>
                 <article className="markdown">
-                    <MDXContent code={reactDoc.body.code} />
+                    {reactDoc.body.code ? (
+                        <MDXContent code={reactDoc.body.code} />
+                    ) : (
+                        <p>No content available.</p>
+                    )}
                 </article>
                 <footer>
                     <Paginator next="#" prev="#" />

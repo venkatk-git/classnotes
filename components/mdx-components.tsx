@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import Info from "./markdown/info";

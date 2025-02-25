@@ -15,23 +15,20 @@ React Hooks allow you to use state and other React features without writing a cl
 **Purpose**: Adds state to functional components.
 
 <CodeBlock>
-```jsxjsx
+```jsx
 import React, { useState } from 'react';
 
 function Counter() {
-const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-return (
-<div>
-<p>You clicked {count} times</p>
-<button onClick={() => setCount(count + 1)}>
-Click me
-</button>
-</div>
-);
+    return (
+      <div>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1)}>Click me</button>
+      </div>
+    );
 }
-
-````
+```
 </CodeBlock>
 
 How It Works:
@@ -46,7 +43,7 @@ Use it for simple state management.
 **Purpose**: Runs side effects in components (e.g., fetching data, updating the DOM).
 
 <CodeBlock>
-```jsxjsx
+```jsx
 import React, { useState, useEffect } from 'react';
 
 function User() {
@@ -66,23 +63,21 @@ function User() {
     )
   );
 }
-````
+```
 
 </CodeBlock>
 
 ### Clean up function
 
 <CodeBlock>
-```jsxjsx
+```jsx
 useEffect(() => {
     const intervalId = setInterval(() => console.log('Tick'), 1000);
-
-return () => {
-clearInterval(intervalId); // Cleanup on unmount
-};
+    return () => {
+      clearInterval(intervalId); // Cleanup on unmount
+    };
 }, []);
-
-````
+```
 </CodeBlock>
 
 ## useContext() Hook 📡
@@ -106,7 +101,7 @@ function Toolbar() {
   const theme = useContext(ThemeContext);
   return <div>{theme === 'dark' ? 'moon' : 'sun'}</div>;
 }
-````
+```
 
 </CodeBlock>
 
@@ -116,37 +111,35 @@ Purpose: Alternative to useState for complex state logic.
 Why: We can create a centralized state and update logic in a reducer function.
 
 <CodeBlock>
-```jsxjsx
+```jsx
 import React, { useReducer } from 'react';
 
 const initialState = { items: [], total: 0 };
 
 function reducer(state, action) {
-switch (action.type) {
-case 'ADD_ITEM':
-return {
-items: [...state.items, action.payload],
-total: state.total + action.payload.price
-};
-default:
-return state;
-}
-}
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return {
+        items: [...state.items, action.payload],
+        total: state.total + action.payload.price
+      };
+      default: return state;
+    }
+  }
 
-function ShoppingCart() {
-const [state, dispatch] = useReducer(reducer, initialState);
+  function ShoppingCart() {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-return (
-<div>
-<p>Total: ${state.total}</p>
-<button onClick={() => dispatch({ type: 'ADD_ITEM', payload: { price: 10 } })}>
-Add Item
-</button>
-</div>
-);
+  return (
+  <div>
+  <p>Total: ${state.total}</p>
+  <button onClick={() => dispatch({ type: 'ADD_ITEM', payload: { price: 10 } })}>
+  Add Item
+  </button>
+  </div>
+  );
 }
-
-````
+```
 </CodeBlock>
 
 ## useMemo() Hook 🧠
