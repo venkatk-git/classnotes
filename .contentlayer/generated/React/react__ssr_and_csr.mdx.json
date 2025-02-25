@@ -1,0 +1,20 @@
+{
+  "title": "SSR & CSR",
+  "author": "Venkat",
+  "description": "Description\r",
+  "body": {
+    "raw": "\r\n# Server Side Rendering (SSR) & Client Side Rendering (CSR)\r\n\r\n\r\n## What is Server Side Rendering (SSR)?\r\n\r\n\r\n## What is Client Side Rendering (CSR)?\r\n\r\n\r\n## What are the advantages of SSR over CSR?",
+    "code": "var Component=(()=>{var g=Object.create;var a=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var v=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),R=(n,e)=>{for(var i in e)a(n,i,{get:e[i],enumerable:!0})},c=(n,e,i,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of m(e))!u.call(n,s)&&s!==i&&a(n,s,{get:()=>e[s],enumerable:!(t=S(e,s))||t.enumerable});return n};var p=(n,e,i)=>(i=n!=null?g(f(n)):{},c(e||!n||!n.__esModule?a(i,\"default\",{value:n,enumerable:!0}):i,n)),k=n=>c(a({},\"__esModule\",{value:!0}),n);var o=v((N,d)=>{d.exports=_jsx_runtime});var b={};R(b,{default:()=>l,frontmatter:()=>x});var r=p(o()),x={title:\"SSR & CSR\",author:\"Venkat\",description:\"Description\"};function h(n){let e={a:\"a\",h1:\"h1\",h2:\"h2\",span:\"span\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(e.h1,{id:\"server-side-rendering-ssr--client-side-rendering-csr\",children:[(0,r.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#server-side-rendering-ssr--client-side-rendering-csr\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"Server Side Rendering (SSR) & Client Side Rendering (CSR)\"]}),`\n`,(0,r.jsxs)(e.h2,{id:\"what-is-server-side-rendering-ssr\",children:[(0,r.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#what-is-server-side-rendering-ssr\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"What is Server Side Rendering (SSR)?\"]}),`\n`,(0,r.jsxs)(e.h2,{id:\"what-is-client-side-rendering-csr\",children:[(0,r.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#what-is-client-side-rendering-csr\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"What is Client Side Rendering (CSR)?\"]}),`\n`,(0,r.jsxs)(e.h2,{id:\"what-are-the-advantages-of-ssr-over-csr\",children:[(0,r.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#what-are-the-advantages-of-ssr-over-csr\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"What are the advantages of SSR over CSR?\"]})]})}function l(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(h,{...n})}):h(n)}return k(b);})();\n;return Component;"
+  },
+  "_id": "react/ssr_and_csr.mdx",
+  "_raw": {
+    "sourceFilePath": "react/ssr_and_csr.mdx",
+    "sourceFileName": "ssr_and_csr.mdx",
+    "sourceFileDir": "react",
+    "contentType": "mdx",
+    "flattenedPath": "react/ssr_and_csr"
+  },
+  "type": "React",
+  "slug": "/react/ssr_and_csr",
+  "slugAsParams": "ssr_and_csr"
+}

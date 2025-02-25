@@ -1,0 +1,20 @@
+{
+  "title": "Higher Order Functions In React",
+  "author": "Venkat",
+  "description": "Description\r",
+  "body": {
+    "raw": "\r\n# What are Higher Order Functions?\r\n\r\n\r\n# Why Higher Order Functions?\r\n\r\n\r\n# When to use Higher Order Functions?\r\n\r\n\r\n# How to use Higher Order Functions in React?",
+    "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var w=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),k=(e,n)=>{for(var i in n)o(e,i,{get:n[i],enumerable:!0})},s=(e,n,i,t)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of f(n))!p.call(e,a)&&a!==i&&o(e,a,{get:()=>n[a],enumerable:!(t=g(n,a))||t.enumerable});return e};var x=(e,n,i)=>(i=e!=null?u(m(e)):{},s(n||!e||!e.__esModule?o(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>s(o({},\"__esModule\",{value:!0}),e);var h=w((H,c)=>{c.exports=_jsx_runtime});var F={};k(F,{default:()=>l,frontmatter:()=>N});var r=x(h()),N={title:\"Higher Order Functions In React\",author:\"Venkat\",description:\"Description\"};function d(e){let n={a:\"a\",h1:\"h1\",span:\"span\",...e.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(n.h1,{id:\"what-are-higher-order-functions\",children:[(0,r.jsx)(n.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#what-are-higher-order-functions\",children:(0,r.jsx)(n.span,{className:\"icon icon-link\"})}),\"What are Higher Order Functions?\"]}),`\n`,(0,r.jsxs)(n.h1,{id:\"why-higher-order-functions\",children:[(0,r.jsx)(n.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#why-higher-order-functions\",children:(0,r.jsx)(n.span,{className:\"icon icon-link\"})}),\"Why Higher Order Functions?\"]}),`\n`,(0,r.jsxs)(n.h1,{id:\"when-to-use-higher-order-functions\",children:[(0,r.jsx)(n.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#when-to-use-higher-order-functions\",children:(0,r.jsx)(n.span,{className:\"icon icon-link\"})}),\"When to use Higher Order Functions?\"]}),`\n`,(0,r.jsxs)(n.h1,{id:\"how-to-use-higher-order-functions-in-react\",children:[(0,r.jsx)(n.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#how-to-use-higher-order-functions-in-react\",children:(0,r.jsx)(n.span,{className:\"icon icon-link\"})}),\"How to use Higher Order Functions in React?\"]})]})}function l(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(d,{...e})}):d(e)}return b(F);})();\n;return Component;"
+  },
+  "_id": "react/higher_order_functions.mdx",
+  "_raw": {
+    "sourceFilePath": "react/higher_order_functions.mdx",
+    "sourceFileName": "higher_order_functions.mdx",
+    "sourceFileDir": "react",
+    "contentType": "mdx",
+    "flattenedPath": "react/higher_order_functions"
+  },
+  "type": "React",
+  "slug": "/react/higher_order_functions",
+  "slugAsParams": "higher_order_functions"
+}
