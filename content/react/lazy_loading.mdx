@@ -5,6 +5,26 @@ description: Description
 ---
 
 # Lazy Loading
-- Code Splitting
-- Chunking
-- Suspense
+In React, lazy loading can be handled with combination two API's `React.lazy` and `Suspense`.
+
+## React.lazy()
+`React.lazy` is a function that lets us to render a dynamic import as a regular component.
+
+<CodeBlock>
+```jsx
+// This line lets react to load the component lazily
+const MyComponent = React.lazy(() => import('./MyComponent'));
+```
+</CodeBlock>
+
+## Suspense
+`Suspense` is a component that lets us to wait for some code to load and declare the loading state. Meanwhile, we can show some fallback UI.
+
+<CodeBlock>
+```jsx
+<Suspense fallback={<div>Loading...</div>}>
+  // Lazy loaded Component
+  <MyComponent />
+</Suspense>
+```
+</CodeBlock>

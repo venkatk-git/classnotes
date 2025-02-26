@@ -1,7 +1,7 @@
 ---
 title: "State Management in React"
 author: Venkat
-description: Description
+description: "State Management in React"
 ---
 
 # State & Props
@@ -21,11 +21,86 @@ When a state changes in the context, all the components that are subscribed to t
 The `useReducer` hook is used to manage the state of a component. It is similar to the `useState` hook, but it is more powerful and flexible.
 The `useReducer` hook takes two arguments: a reducer function and an initial state.
 
+<CodeBlock>
+```jsx
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'increment': return { count: state.count + 1 };
+        case 'decrement': return { count: state.count - 1 };
+        default: return state;
+    }
+}
+const [state, dispatch] = useReducer(reducer, initialState);
+
+dispatch({type: 'increment'});
+
+// dispatch({type: 'dispatch_type', payload: data})
+```
+</CodeBlock>
+
 ## State Management Libraries
 There are several state management libraries available in React. Some of the popular ones are:
 - Redux
 - Zustand
 
 ## Redux
+Redux is more similar to the `useReducer` hook. It is a predictable state container for JavaScript apps.
+
+<CodeBlock>
+```jsx
+// Same reducer as useReducer()
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'increment': return { count: state.count + 1 };
+        case 'decrement': return { count: state.count - 1 };
+        default: return state;
+    }
+}
+
+const store = createStore(reducer); 
+
+// In App component we have to wrap the component with this Provider
+<Provider store={store}>
+    <App />
+</Provider>
+
+// Then we can access the state and dispatch in any component of the App
+const state = useSelector(state => state);
+const dispatch = useDispatch();
+
+dispatch({type: 'increment'});
+```
+</CodeBlock>
 
 ## Zustand
+Zustand is a small, fast and easy to use state management library for React. It is similar to Redux but with a simpler API.
+
+<CodeBlock>
+```jsx
+const useZustandState = create((set) => ({
+    // Initial state
+    count: 0,
+
+    // Actions
+    increment: () => set(state => ({count: state.count + 1}))
+    incrementWithValue = (value) => {
+        set(state => ({count: state.count + value}))
+    }
+}))
+
+// Just export this state from the file and use it in any component
+export default useZustandState;
+
+// In any component
+// Extract only necessary state values using selector
+const { count, increment, incrementWithValue } = useZustandState(state => ({
+    count: state.count,
+    increment: state.increment,
+    incrementWithValue: state.incrementWithValue
+}));
+
+console.log(count);
+increment();
+incrementWithValue(5);
+```
+</CodeBlock>
