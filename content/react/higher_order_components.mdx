@@ -4,13 +4,34 @@ author: Venkat
 description: Description
 ---
 
-# What are Higher Order Functions?
+# What are Higher Order Components?
+A Higher Order Components is a component that takes another component as an input and returns an enhanced version of the input component.
 
+<CodeBlock>
+```jsx
+import React from "react";
 
-# Why Higher Order Functions?
+// Higher Order Component (HOC)
+const withBorder = (WrappedComponent) => {
+  return (props) => (
+    <div style={{ border: "2px solid blue", padding: "10px" }}>
+      <WrappedComponent {...props} />
+    </div>
+  );
+};
 
+// Simple Component
+const Message = ({ text }) => <h2>{text}</h2>;
 
-# When to use Higher Order Functions?
+// Wrap Message component with HOC
+const MessageWithBorder = withBorder(Message);
 
+const App = () => {
+  return <MessageWithBorder text="Hello, HOC!" />;
+};
 
-# How to use Higher Order Functions in React?
+export default App;
+```
+</CodeBlock>
+
+By using Higher Order Components we can reuse logic across components, add extra functionalities to existing components.

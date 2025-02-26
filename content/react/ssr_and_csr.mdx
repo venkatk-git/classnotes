@@ -1,16 +1,31 @@
 ---
 title: "SSR & CSR"
 author: Venkat
-description: Description
+description: "An overview of Server-Side Rendering (SSR) and Client-Side Rendering (CSR) in React."
 ---
 
-# Server Side Rendering (SSR) & Client Side Rendering (CSR)
+# Server-Side Rendering (SSR) & Client-Side Rendering (CSR)
+SSR and CSR are two rendering strategies used in frontend development. By default, React applications use **Client-Side Rendering (CSR).**
 
+## What is Client-Side Rendering (CSR)?
+In CSR, the app is rendered entirely in the browser. The process works as follows:
 
-## What is Server Side Rendering (SSR)?
+1. The browser sends a request to the server.  
+2. The server responds by sending the necessary files (HTML, JavaScript, CSS).  
+3. The browser downloads the HTML page and JavaScript bundles.  
+4. React executes in the browser and dynamically builds the UI.  
 
+Since rendering happens on the client side, the **initial page load may be slower**, but **subsequent interactions are faster**.
 
-## What is Client Side Rendering (CSR)?
+## What is Server-Side Rendering (SSR)?
+In SSR, pages are rendered on the **server** before being sent to the browser. This means users see content **immediately** instead of waiting for JavaScript execution.
 
+1. The browser sends a request to the server.  
+2. The server renders React components into **static HTML**.  
+3. The server sends this **pre-rendered HTML** to the client.  
+4. The browser displays the page immediately.  
+5. The client downloads JavaScript and **hydrates** the app (makes it interactive).  
 
-## What are the advantages of SSR over CSR?
+Since the content is pre-rendered, SSR is **better for SEO and initial page load times**. However, it requires **more server resources**.
+
+---

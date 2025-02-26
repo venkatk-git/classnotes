@@ -5,11 +5,89 @@ description: Description
 ---
 
 # Async Tasks
-
 Async tasks are tasks that take a long time to complete. These tasks can be network requests, file operations, or any other task that takes a long time to complete. In JavaScript, these tasks are handled using Promises, async/await, or callbacks.
+In React async tasks are always considered as **side effects** , So typically we wrap the async tasks in `useEffect()` hook.
+
+<CodeBlock>
+```jsx
+useEffect(() => {
+    // Do the async tasks
+}, []);
+```
+</CodeBlock>
 
 ## API Calls
+API calls typically made using `fetch()` or `axios` and `useEffect()`.
+
+<CodeBlock>
+```jsx
+const [data, setData] = useState(null);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+    const fetchData = async () => {
+        setLoading(true);
+        try {
+            const res = await axios.get("https://example.com");
+            setData(res.data);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    fetchData();
+}, []);
+```
+</CodeBlock>
 
 ## Events
+In React while handling events like `setTimeOut()` or `setInterval()` 
+<CodeBlock>
+```jsx
+useEffect(() => {
+    const intervalId = setInterval(() => {
+        //...
+    }, 500);
+
+    const timeoutId = setTimeOut(() => {
+        //...
+    }, 500);
+
+    return () => {
+        clearInterval(intervalId);
+        clearTimeout(timeoutId);
+    }
+}, []);
+```
+</CodeBlock>
 
 ## Promises
+Promises can handled with `then().catch()` or `async/await`
+<CodeBlock>
+```jsx
+// With then() and catch()
+useEffect(() => {
+    fetch("https://example.com")
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error("Error fetching data:", error));
+}, []);
+
+// With async and await
+useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await fetch("https://example.com");
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+    fetchData();
+}, []);
+```
+</CodeBlock>
