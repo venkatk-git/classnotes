@@ -2,13 +2,13 @@
 
 import react__async_tasksMdx from './react__async_tasks.mdx.json' with { type: 'json' }
 import react__custom_hooksMdx from './react__custom_hooks.mdx.json' with { type: 'json' }
-import react__higher_order_functionsMdx from './react__higher_order_functions.mdx.json' with { type: 'json' }
+import react__higher_order_componentsMdx from './react__higher_order_components.mdx.json' with { type: 'json' }
 import react__hooksMdx from './react__hooks.mdx.json' with { type: 'json' }
-import react__lazy_lodingMdx from './react__lazy_loding.mdx.json' with { type: 'json' }
-import react__life_cycle_methodMdx from './react__life_cycle_method.mdx.json' with { type: 'json' }
+import react__lazy_loadingMdx from './react__lazy_loading.mdx.json' with { type: 'json' }
+import react__life_cycle_methodsMdx from './react__life_cycle_methods.mdx.json' with { type: 'json' }
 import react__routingMdx from './react__routing.mdx.json' with { type: 'json' }
 import react__ssr_and_csrMdx from './react__ssr_and_csr.mdx.json' with { type: 'json' }
 import react__state_managementMdx from './react__state_management.mdx.json' with { type: 'json' }
 import react__virtual_domMdx from './react__virtual_dom.mdx.json' with { type: 'json' }
 
-export const allReacts = [react__async_tasksMdx, react__custom_hooksMdx, react__higher_order_functionsMdx, react__hooksMdx, react__lazy_lodingMdx, react__life_cycle_methodMdx, react__routingMdx, react__ssr_and_csrMdx, react__state_managementMdx, react__virtual_domMdx]
+export const allReacts = [react__async_tasksMdx, react__custom_hooksMdx, react__higher_order_componentsMdx, react__hooksMdx, react__lazy_loadingMdx, react__life_cycle_methodsMdx, react__routingMdx, react__ssr_and_csrMdx, react__state_managementMdx, react__virtual_domMdx]

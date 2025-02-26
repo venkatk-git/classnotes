@@ -45,7 +45,7 @@ export const docsConfig = {
             items: [
                 {
                     title: "The Virtual DOM in React",
-                    href: "/react/virtual-dom",
+                    href: "/react/virtual_dom",
                     items: [],
                     next: "/react/state_management",
                     prev: "",
@@ -55,7 +55,7 @@ export const docsConfig = {
                     href: "/react/state_management",
                     items: [],
                     next: "/react/hooks",
-                    prev: "/react/virtual-dom",
+                    prev: "/react/virtual_dom",
                 },
                 {
                     title: "React Hooks",
