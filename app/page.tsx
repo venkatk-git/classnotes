@@ -15,7 +15,7 @@ export default function Home() {
                         A free collection of curated,{" "}
                         <br className="sm:hidden" />
                         <span className="font-medium bg-gradient-to-r dark:bg-gradient-to-r decoration-clone from-sky-600 to-purple-700 dark:from-sky-400 dark:to-purple-400 text-transparent bg-clip-text">
-                            high-quality Java notes
+                            high-quality notes
                         </span>{" "}
                         <br className="hidden md:block" />
                         designed to guide for starters.
