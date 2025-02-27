@@ -34,7 +34,7 @@ React creates a virtual representation of the actual DOM. It is exactly like the
 2. If state change happens, React creates a new virtual DOM tree instance.
 3. React compares the new virtual DOM tree with the old virtual DOM tree. This process is called Reconcialiation. 
 In this process, React uses a diffing algorithm to find the difference between the two virtual DOM trees.
-4. Once the differences are found, React updates the actual DOM with the changes.
+4. Once the differences are found, React updates the actual DOM with the **changes**.
 
 ## Advantages of Virtual DOM
 1. Since, Virtual DOM is not traversing through the whole DOM tree, it is faster.
@@ -48,12 +48,25 @@ React never ever manipulates the DOM directly. Instead, it uses the Virtual DOM 
 </Info>
 
 ## Reconciliation
+Reconcialiation is the process of updating the DOM tree with minimum number of changes. On changes occurs react creates a new virtual dom and compares it with the old dom instead of directly updating.
+This process is done with the help of diffing algorithm. 
 
-
-## React fiber
-
+### There are three phases
+1. Virtual DOM
+2. Diffing Algorithm
+3. Commit Phase
 
 ## Diffing Algorithm
-
+The diffing algorithm in react determines the minimum number of changes needed to update the DOM efficiently when a component's state or props changes.
 
 ## How render works in React?
+React follows a two-phase approach when rendering components
+
+1. React Render Phase (Reconcialiation)
+- React calls the react component functions and creates the virtual DOM
+- It compares the new Virtual DOM with Previous Once
+- React prepares the changes but doesn’t apply them to the real DOM yet.
+2. Commit Phase
+- React updates the real DOM,
+- React runs the lifecycle methos (useEffect()),
+- React paints the updated UI on browser.
