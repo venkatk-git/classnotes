@@ -49,28 +49,6 @@ export function MainNav() {
             >
                 Operating Systems
             </Link>
-            <Link
-                className={cn(
-                    "text-md font-medium transition-colors hover:text-primary hidden sm:inline-block",
-                    pathname === "/about"
-                        ? "text-foreground"
-                        : "text-foreground/60"
-                )}
-                href="/about"
-            >
-                About
-            </Link>
-            <Link
-                className={cn(
-                    "text-md font-medium transition-colors hover:text-primary hidden sm:inline-block",
-                    pathname === "/contact"
-                        ? "text-foreground"
-                        : "text-foreground/60"
-                )}
-                href="/contact"
-            >
-                Contact
-            </Link>
         </nav>
     );
 }
