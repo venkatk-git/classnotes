@@ -6,8 +6,6 @@ import { Paginator } from "@/components/paginator";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getTableOfContents } from "@/lib/toc";
-import { TOC } from "@/components/toc";
 import Prerequisites from "@/components/markdown/prerequisites";
 import { docsConfig } from "@/config/docs";
 interface OsDocPageProps {
@@ -83,20 +81,10 @@ export default async function OsDocPage({ params }: OsDocPageProps) {
         return notFound();
     }
 
-    const toc = await getTableOfContents(OsDoc.body.raw);
-
     console.log(docsConfig.react_docs);
 
     return (
         <div className="relative px-4 md:px-6 lg:px-8 flex overflow-auto max-w-6xl mx-auto">
-            <aside className="hidden xl:inline-block order-2 mx-6 flex-shrink-0 w-64">
-                <div className="fixed top-0 mx-6 mt-48">
-                    <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
-                        Table of contents
-                    </h2>
-                    <TOC toc={toc} />
-                </div>
-            </aside>
             <main className="flex flex-col order-1 z-10 h-full">
                 <header className="sticky top-0 bg-background z-50 lg:relative flex gap-4">
                     <MobileSidebarNav />
@@ -117,15 +105,6 @@ export default async function OsDocPage({ params }: OsDocPageProps) {
                 </header>
                 <Prerequisites prerequisitesSlugs={OsDoc.prerequisites} />
                 <Divider />
-                <div className=" 2xl:hidden">
-                    <div className="sticky">
-                        <h2 className="uppercase dark:text-gray-300 font-bold mb-2 text-sm tracking-wider">
-                            Table of contents
-                        </h2>
-                        <TOC toc={toc} />
-                    </div>
-                    <Divider />
-                </div>
                 <article className="markdown">
                     <MDXContent code={OsDoc.body.code} />
                 </article>
